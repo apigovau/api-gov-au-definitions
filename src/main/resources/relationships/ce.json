@@ -1,0 +1,112 @@
+
+[
+  {
+    "type":"skos:subClassOf",
+    "content": [
+      ["http://dxa.gov.au/definition/ce/ce57","http://dxa.gov.au/definition/ce/ce13"],
+      ["http://dxa.gov.au/definition/ce/ce45","http://dxa.gov.au/definition/ce/ce13"],
+      ["http://dxa.gov.au/definition/ce/ce32","http://dxa.gov.au/definition/ce/ce13"]
+    ]
+  },
+  {
+    "type":"rdfs:seeAlso",
+    "content": [
+      ["http://dxa.gov.au/definition/ce/ce57","http://dxa.gov.au/definition/ce/ce52"],
+      ["http://dxa.gov.au/definition/ce/ce25","http://dxa.gov.au/definition/ce/ce52"],
+      ["http://dxa.gov.au/definition/ce/ce1","http://dxa.gov.au/definition/ce/ce52"],
+      ["http://dxa.gov.au/definition/ce/ce1","http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce15","http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce15","http://dxa.gov.au/definition/ce/ce13"],
+      ["http://dxa.gov.au/definition/ce/ce13","http://dxa.gov.au/definition/ce/ce76"],
+      ["http://dxa.gov.au/definition/ce/ce19","http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce45","http://dxa.gov.au/definition/ce/ce32"]
+
+    ]
+  },
+  {
+    "type":"skos:member",
+    "content":[
+      ["http://dxa.gov.au/definition/ce/ce2", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce3", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce4", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce5", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce6", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce7", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce8", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce9", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce10", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce11", "http://dxa.gov.au/definition/ce/ce1"],
+      ["http://dxa.gov.au/definition/ce/ce12", "http://dxa.gov.au/definition/ce/ce1"],
+
+      ["http://dxa.gov.au/definition/ce/ce14", "http://dxa.gov.au/definition/ce/ce13"],
+
+      ["http://dxa.gov.au/definition/ce/ce16", "http://dxa.gov.au/definition/ce/ce15"],
+      ["http://dxa.gov.au/definition/ce/ce17", "http://dxa.gov.au/definition/ce/ce13"],
+      ["http://dxa.gov.au/definition/ce/ce18", "http://dxa.gov.au/definition/ce/ce13"],
+
+      ["http://dxa.gov.au/definition/ce/ce14", "http://dxa.gov.au/definition/ce/ce13"],
+
+      ["http://dxa.gov.au/definition/ce/ce20", "http://dxa.gov.au/definition/ce/ce19"],
+      ["http://dxa.gov.au/definition/ce/ce21", "http://dxa.gov.au/definition/ce/ce19"],
+      ["http://dxa.gov.au/definition/ce/ce22", "http://dxa.gov.au/definition/ce/ce19"],
+      ["http://dxa.gov.au/definition/ce/ce23", "http://dxa.gov.au/definition/ce/ce19"],
+      ["http://dxa.gov.au/definition/ce/ce24", "http://dxa.gov.au/definition/ce/ce19"],
+
+      ["http://dxa.gov.au/definition/ce/ce26", "http://dxa.gov.au/definition/ce/ce25"],
+      ["http://dxa.gov.au/definition/ce/ce27", "http://dxa.gov.au/definition/ce/ce25"],
+      ["http://dxa.gov.au/definition/ce/ce28", "http://dxa.gov.au/definition/ce/ce25"],
+
+      ["http://dxa.gov.au/definition/ce/ce30", "http://dxa.gov.au/definition/ce/ce29"],
+      ["http://dxa.gov.au/definition/ce/ce31", "http://dxa.gov.au/definition/ce/ce29"],
+
+      ["http://dxa.gov.au/definition/ce/ce33", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce34", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce35", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce36", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce37", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce38", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce39", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce40", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce40", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce42", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce43", "http://dxa.gov.au/definition/ce/ce32"],
+      ["http://dxa.gov.au/definition/ce/ce44", "http://dxa.gov.au/definition/ce/ce32"],
+
+      ["http://dxa.gov.au/definition/ce/ce46", "http://dxa.gov.au/definition/ce/ce45"],
+      ["http://dxa.gov.au/definition/ce/ce47", "http://dxa.gov.au/definition/ce/ce45"],
+      ["http://dxa.gov.au/definition/ce/ce48", "http://dxa.gov.au/definition/ce/ce45"],
+      ["http://dxa.gov.au/definition/ce/ce49", "http://dxa.gov.au/definition/ce/ce45"],
+      ["http://dxa.gov.au/definition/ce/ce50", "http://dxa.gov.au/definition/ce/ce45"],
+      ["http://dxa.gov.au/definition/ce/ce51", "http://dxa.gov.au/definition/ce/ce45"],
+
+      ["http://dxa.gov.au/definition/ce/ce53", "http://dxa.gov.au/definition/ce/ce52"],
+      ["http://dxa.gov.au/definition/ce/ce54", "http://dxa.gov.au/definition/ce/ce52"],
+      ["http://dxa.gov.au/definition/ce/ce55", "http://dxa.gov.au/definition/ce/ce52"],
+      ["http://dxa.gov.au/definition/ce/ce56", "http://dxa.gov.au/definition/ce/ce52"],
+
+      ["http://dxa.gov.au/definition/ce/ce58", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce59", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce60", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce61", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce62", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce63", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce64", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce65", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce66", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce67", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce68", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce69", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce70", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce71", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce72", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce73", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce74", "http://dxa.gov.au/definition/ce/ce57"],
+      ["http://dxa.gov.au/definition/ce/ce75", "http://dxa.gov.au/definition/ce/ce57"],
+
+      ["http://dxa.gov.au/definition/ce/ce77", "http://dxa.gov.au/definition/ce/ce76"],
+      ["http://dxa.gov.au/definition/ce/ce78", "http://dxa.gov.au/definition/ce/ce76"],
+      ["http://dxa.gov.au/definition/ce/ce79", "http://dxa.gov.au/definition/ce/ce76"]
+
+    ]
+  }
+]

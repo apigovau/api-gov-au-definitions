@@ -1,0 +1,25 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+  - $HOME/.gradle
+
+before_script:
+  - ./gradlew clean assemble jar
+  - java -jar build/libs/definitions-catalogue-1.0.jar &
+
+script:
+  - ./gradlew test
+
+after_script:
+  - killall java

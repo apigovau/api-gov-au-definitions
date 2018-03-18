@@ -1,0 +1,20 @@
+[
+  {
+    "type":"skos:subClassOf",
+    "directed": true,
+    "to":"is sub class of",
+    "from":"has sub class"
+  },
+  {
+    "type":"rdfs:seeAlso",
+    "directed": false,
+    "to":"see also",
+    "from":"see also"
+  },
+  {
+    "type":"skos:member",
+    "directed": true,
+    "to":"is member of",
+    "from":"has member"
+  }
+]
