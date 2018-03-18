@@ -56,6 +56,8 @@ class Controller {
         return "search"
     }
 
+
+
     @RequestMapping("/help")
     fun help():String = "help"
 
