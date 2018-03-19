@@ -103,7 +103,7 @@ class DefinitionRepository {
     }
 
     private fun addJsonDefinitions() {
-        for (domain in listOf("trc", "fs", "ss", "fi", "ce")) {
+        for (domain in listOf("trc", "fs", "ss", "fi", "ce", "edu")) {
             val domainJson: JsonObject = JsonHelper.parse("/definitions/json/$domain.json") as JsonObject
 
             val name = domainJson.string("domain")
@@ -139,13 +139,14 @@ class DefinitionRepository {
     }
 
 
-    private fun extractJSONDefinition(jsonDefinition: JsonObject, domainAcronym: String, sourceURL: String): Definition {
+    private fun extractJSONDefinition(jsonDefinition: JsonObject, domainAcronym: String, domainSourceURL: String): Definition {
         val name = jsonDefinition.string("name") ?: ""
         val domain = jsonDefinition.string("domain") ?: ""
         val status = jsonDefinition.string("status") ?: ""
         val definition = jsonDefinition.string("definition") ?: ""
         val guidance = jsonDefinition.string("guidance") ?: ""
         val identifier = jsonDefinition.string("identifier") ?: ""
+        val sourceURL = jsonDefinition.string("sourceURL") ?: domainSourceURL
         var usage = arrayOf<String>()
         val jsonUsage = jsonDefinition.array<String>("usage")
         if (jsonUsage != null) {
