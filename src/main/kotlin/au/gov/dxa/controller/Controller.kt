@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import javax.servlet.http.HttpServletRequest
+import java.net.HttpURLConnection
+import java.net.URL
 
 
 @Controller
@@ -49,7 +51,7 @@ class Controller {
             model["queryString"] = searchString
             val results = definitionService.search(searchString, "",page, size, raw)
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
-            populateResultsPage(pageResult, model)
+            populateResultsPage(pageResult, model, searchString)
             if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
         }
 
@@ -112,7 +114,7 @@ class Controller {
         return "browse"
     }
 
-    private fun populateResultsPage(pageResult: PageResult<Definition>, model: MutableMap<String, Any>) {
+    private fun populateResultsPage(pageResult: PageResult<Definition>, model: MutableMap<String, Any>, queryString : String = "") {
         val definitions = pageResult.content
         if (!pageResult.isFirstPage()) model["prevPage"] =  pageResult.thePrevPage(false)
         if (!pageResult.isLastPage()) model["nextPage"] = pageResult.theNextPage(false)
@@ -120,6 +122,7 @@ class Controller {
         model["pageURL"] =  pageResult.uri
         model["lastPageNumber"] = pageResult.getTotalPages()
         model["totalResults"] = pageResult.numberOfElements
+        model["spellCheck"] = getDictionaryCorrection(queryString, pageResult.numberOfElements)
 
         val pagesToTheLeft = pageResult.pagesToTheLeft()
         if (pagesToTheLeft.size == 1) {
@@ -158,6 +161,25 @@ class Controller {
             viewDefns.add(ViewDefinition(definition.name, definition.domain, shortDef, localHref, definition.status, definition.type))
         }
         model["definitions"] = viewDefns
+    }
+
+    private fun getDictionaryCorrection(query: String, numberOfElements: Int):String{
+        var returnString: String = ""
+        if (numberOfElements == 0) {
+            val url = "https://dxa-dict-service.herokuapp.com/api/values/$query"
+
+            try {
+                val con = URL(url).openConnection()
+                con.connectTimeout = 5000
+                returnString = con.inputStream.bufferedReader().readText()
+            } catch (e:Exception) {
+                
+            }
+        } else {
+            returnString = "";
+            return returnString
+        }
+        return returnString
     }
 
     @RequestMapping("/definition/{domain}/{id}")

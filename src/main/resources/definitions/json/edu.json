@@ -178,7 +178,7 @@
             "name": "Location code of permanent home residence",
             "domain": "Education",
             "status": "Standard",
-            "definition": "The Australian postcode or overseas country code of a student's/applicant�s permanent home residence",
+            "definition": "The Australian postcode or overseas country code of a student's/applicants permanent home residence",
             "guidance": "Field Name: HOME-LOCATION",
             "identifier": "http://dxa.gov.au/definition/edu/edu320",
             "usage": [
@@ -416,7 +416,7 @@
             "name": "Citizen/resident indicator",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code indicating a student's/applicant�s citizenship and residence status",
+            "definition": "A code indicating a student's/applicants citizenship and residence status",
             "guidance": "Field Name: CITIZEN-RESIDENT",
             "identifier": "http://dxa.gov.au/definition/edu/edu358",
             "usage": [
@@ -484,7 +484,7 @@
             "name": "Total exemption granted",
             "domain": "Education",
             "status": "Standard",
-            "definition": "For students with a commencement date of 2007 or earlier; the percentage of the course�s requirements over all its stages for which exemption was granted by the time the requirements of the course were completed.",
+            "definition": "For students with a commencement date of 2007 or earlier; the percentage of the courses requirements over all its stages for which exemption was granted by the time the requirements of the course were completed.",
             "guidance": "Field Name: TOTAL-EXEMPTION",
             "identifier": "http://dxa.gov.au/definition/edu/edu385",
             "usage": [
@@ -821,7 +821,7 @@
             "sourceURL": "http://heimshelp.education.gov.au/sites/heimshelp/2018_data_requirements/2018dataelements/pages/416"
         },
         {
-            "name": "Equivalent full-time annual salary � current duties",
+            "name": "Equivalent full-time annual salary current duties",
             "domain": "Education",
             "status": "Standard",
             "definition": "The salary level of a member of staff at the reference date, expressed in terms of the annual amount which would be paid to a person performing on a full-time basis the same type of duties as the member of staff and in respect of their current duties",
@@ -1198,7 +1198,7 @@
             "name": "Highest educational participation prior to commencement",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code which indicates the student's or applicant�s highest educational participation and last year of that participation prior to the first enrolment in the course of study",
+            "definition": "A code which indicates the student's or applicants highest educational participation and last year of that participation prior to the first enrolment in the course of study",
             "guidance": "Field Name: HIGHEST-PARTICIPATION",
             "identifier": "http://dxa.gov.au/definition/edu/edu493",
             "usage": [
@@ -1249,7 +1249,7 @@
             "name": "Entry Cut-Off for a Commonwealth Supported place (CSP)",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code indicating the previous years� lowest entry cut-off required for entry to a CSP for this course at this campus.",
+            "definition": "A code indicating the previous years lowest entry cut-off required for entry to a CSP for this course at this campus.",
             "guidance": "Field Name: ENTRY-CUT-OFF-CSP",
             "identifier": "http://dxa.gov.au/definition/edu/edu497",
             "usage": [
@@ -1266,7 +1266,7 @@
             "name": "Entry Cut-off for a domestic fee-paying place",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code indicating the previous years� lowest entry cut-off required for entry to a domestic fee paying place for this course at this campus.",
+            "definition": "A code indicating the previous years lowest entry cut-off required for entry to a domestic fee paying place for this course at this campus.",
             "guidance": "Field Name: ENTRY-CUT-OFF- DOMESTIC-FEE-PAYING",
             "identifier": "http://dxa.gov.au/definition/edu/edu498",
             "usage": [
@@ -1368,7 +1368,7 @@
             "name": "Current duties term code",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code which identifies the term for a member of staff�s current duties",
+            "definition": "A code which identifies the term for a member of staffs current duties",
             "guidance": "Field Name: CURRENT-TERM",
             "identifier": "http://dxa.gov.au/definition/edu/edu507",
             "usage": [
@@ -1433,7 +1433,7 @@
             "sourceURL": "http://heimshelp.education.gov.au/sites/heimshelp/2018_data_requirements/2018dataelements/pages/511"
         },
         {
-            "name": "Full-time equivalence � reference date",
+            "name": "Full-time equivalence reference date",
             "domain": "Education",
             "status": "Standard",
             "definition": "Staff resources available at the reference date for a function being performed in one work sector and one organisational unit by a member of staff, in respect of their current duties",
@@ -1450,7 +1450,7 @@
             "sourceURL": "http://heimshelp.education.gov.au/sites/heimshelp/2018_data_requirements/2018dataelements/pages/513"
         },
         {
-            "name": "Actual full-time equivalence � prior year",
+            "name": "Actual full-time equivalence prior year",
             "domain": "Education",
             "status": "Standard",
             "definition": "Staff resources expended in the calendar year prior to the reference year, on the one function in the one work sector and the one organisational unit, by types of members of staff of the same sex and who have the same classification type and level group",
@@ -1504,7 +1504,7 @@
             "name": "QLD Entry Cut-off for a Commonwealth Supported place (CSP)",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code indicating the previous years� lowest QLD entry cut-off required for entry to a CSP for this course at this campus.",
+            "definition": "A code indicating the previous years lowest QLD entry cut-off required for entry to a CSP for this course at this campus.",
             "guidance": "Field Name: QLD ENTRY CUT-OFF CSP",
             "identifier": "http://dxa.gov.au/definition/edu/edu523",
             "usage": [
@@ -1521,7 +1521,7 @@
             "name": "QLD Entry Cut-off for a domestic fee paying place",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code indicating the previous year�s lowest QLD entry cut-off required for entry to a domestic fee paying place for this course at this campus.",
+            "definition": "A code indicating the previous years lowest QLD entry cut-off required for entry to a domestic fee paying place for this course at this campus.",
             "guidance": "Field Name: QLD ENTRY-CUT-OFF-DOMESTIC-FEE-PAYING",
             "identifier": "http://dxa.gov.au/definition/edu/edu524",
             "usage": [
@@ -2028,11 +2028,11 @@
             "sourceURL": "http://heimshelp.education.gov.au/sites/heimshelp/2018_data_requirements/2018dataelements/pages/567"
         },
         {
-            "name": "Postal Address � Scholarship Postcode",
+            "name": "Postal Address Scholarship Postcode",
             "domain": "Education",
             "status": "Standard",
             "definition": "The Australian or overseas postcode of the postal address for correspondence to be sent to the student",
-            "guidance": "Field Name: POSTAL ADDRESS � SCHOLARSHIP POSTCODE",
+            "guidance": "Field Name: POSTAL ADDRESS SCHOLARSHIP POSTCODE",
             "identifier": "http://dxa.gov.au/definition/edu/edu568",
             "usage": [
                 "See source for more information"
@@ -2235,7 +2235,7 @@
             "name": "OS-HELP Language study commencement date",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A date to link a student�s record for OS-HELP language study with their related OS-HELP record for study in Asia.",
+            "definition": "A date to link a students record for OS-HELP language study with their related OS-HELP record for study in Asia.",
             "guidance": "Field Name: OS-HELP LANGUAGE-STUDY-COMMENCEMENT-DATE",
             "identifier": "http://dxa.gov.au/definition/edu/edu583",
             "usage": [
@@ -2453,7 +2453,7 @@
             "sourceURL": "http://heimshelp.education.gov.au/sites/heimshelp/2018_data_requirements/2018dataelements/pages/724"
         },
         {
-            "name": "Postal address � country code",
+            "name": "Postal address country code",
             "domain": "Education",
             "status": "Standard",
             "definition": "A code to indicate the country of the postal address of an applicant",
@@ -2473,7 +2473,7 @@
             "name": "Prior postgraduate course, year",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code identifying whether an applicant has commenced and/or completed a postgraduate level course (e.g. Higher Doctorate, Doctorate, Master�s Degree); and the last year in which the applicant was enrolled in such a course",
+            "definition": "A code identifying whether an applicant has commenced and/or completed a postgraduate level course (e.g. Higher Doctorate, Doctorate, Masters Degree); and the last year in which the applicant was enrolled in such a course",
             "guidance": "Field Name: PRIOR-POST-GRAD",
             "identifier": "http://dxa.gov.au/definition/edu/edu730",
             "usage": [
@@ -2541,7 +2541,7 @@
             "name": "Prior VET award course, year",
             "domain": "Education",
             "status": "Standard",
-            "definition": "A code identifying whether an applicant has commenced and/or completed, a VET award course other than a sub-degree level course (e.g. Associate degree, Advanced Diploma, Diploma � AQF terminology); and the last year in which the applicant was enrolled in such a course",
+            "definition": "A code identifying whether an applicant has commenced and/or completed, a VET award course other than a sub-degree level course (e.g. Associate degree, Advanced Diploma, Diploma AQF terminology); and the last year in which the applicant was enrolled in such a course",
             "guidance": "Field Name: PRIOR-VET-AWARD",
             "identifier": "http://dxa.gov.au/definition/edu/edu734",
             "usage": [
