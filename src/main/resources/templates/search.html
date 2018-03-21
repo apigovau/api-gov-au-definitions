@@ -39,6 +39,10 @@
                 </div>
         </div>
         <p th:text="${totalResults} + ' results for ' + ${queryString}"/>
+        <div th:if="${spellCheck} != ''">
+            <span th:text="' Did you mean: '"/>
+            <strong><a th:attr="href='?query=' + ${spellCheck}"><span th:text="${spellCheck}"/></a></strong>
+        </div>
         <table>
             <thead>
             <tr>
