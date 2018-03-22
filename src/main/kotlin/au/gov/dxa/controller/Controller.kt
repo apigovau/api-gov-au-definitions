@@ -170,7 +170,7 @@ class Controller {
 
             try {
                 val con = URL(url).openConnection()
-                con.connectTimeout = 5000
+                con.readTimeout = 1000
                 returnString = con.inputStream.bufferedReader().readText()
             } catch (e:Exception) {
                 
