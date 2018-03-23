@@ -238,6 +238,47 @@ ul.pagination_controls li {
     margin-right: 0;
     padding-right: 15px;
 }
+
+.filterBox > a{
+  background: #cdf;
+  cursor: pointer;
+  display: inline-block;
+}
+.filterBox:focus{
+  outline: none;
+}
+.filterBox > div{
+  display: none;
+}
+.filterBox:focus div{
+  display: inline-block;
+}
+.filterBox:focus-within div{
+  display: inline-block;
+}
+.filter_button {
+        /*+border-radius: 0;*/
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        -khtml-border-radius: 0;
+        border-radius: 0;
+        padding: 8px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-left: -5px;
+        background:#1B7991;
+}
+.filter_button:hover {
+        background:#135566;
+}
+
+.filterContent {
+    max-width: 100%;
+    width: 100%;
+    border-top: 5px solid #1B7991;
+    background-color:lightblue;
+}
+
 .hero_header IMG
 {
 	width: 25vw;

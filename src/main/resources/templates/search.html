@@ -17,7 +17,17 @@
         <input th:if="${showResults} != null" type="text" id="query" name="query" th:value="${queryString}" class="uikit-text-input main_search_bar"/>
         <input th:if="${showResults} == null" type="text" th:field="*{query}" placeholder="what are you looking for?" class="uikit-text-input main_search_bar"/>
         <input type="submit" value="Search" class="uikit-btn main_search_button"/>
+        <Span class="filterBox" tabindex="1">
+            <a class="uikit-btn filter_button">Filters</a>
+            <div class="filterContent">
+                <br/>
+                <ul>
+                    <li th:each="domain : ${domains}"> <input type="checkbox" name="domain" th:value="${domain.acronym}" th:text="${domain.name}"/></li>
+                </ul>
+            </div>
+        </Span>
     </form>
+
     <ul class="quick_domain_list">
         <li>Browse:</li>
         <li><a href="/definitions/">All</a></li>
