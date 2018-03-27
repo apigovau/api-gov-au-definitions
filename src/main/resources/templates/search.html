@@ -17,15 +17,50 @@
         <input th:if="${showResults} != null" type="text" id="query" name="query" th:value="${queryString}" class="uikit-text-input main_search_bar"/>
         <input th:if="${showResults} == null" type="text" th:field="*{query}" placeholder="what are you looking for?" class="uikit-text-input main_search_bar"/>
         <input type="submit" value="Search" class="uikit-btn main_search_button"/>
-        <Span class="filterBox" tabindex="1">
-            <a class="uikit-btn filter_button">Filters</a>
-            <div class="filterContent">
-                <br/>
-                <ul>
-                    <li th:each="domain : ${domains}"> <input type="checkbox" name="domain" th:value="${domain.acronym}" th:text="${domain.name}"/></li>
-                </ul>
-            </div>
-        </Span>
+        <label class="filterBox" for="_1">Filters</label>
+        <input id="_1" type="checkbox"/>
+        <div class="filterContent">
+            <br/>
+            <ul class="filtercontentList">
+                <li>
+                        <span>
+                            <strong class="filterContentListNormal">Domains to search:</strong>
+                            <ul class="filterContentListNormal">
+                                <li> <input type="checkbox" name="domain" value="" th:text="All"/></li>
+                                <li th:each="domain : ${domains}"> <label><input type="checkbox" name="domain" th:value="${domain.acronym}" th:text="${domain.name}" th:checked="${#lists.contains(filter.Domains, domain)} ? 'checked'"/></label></li>
+                            </ul>
+                        </span>
+                </li>
+                <li>
+                        <span>
+                            <strong class="filterContentListNormal">Data Types:</strong>
+                            <ul class="filterContentListNormal">
+                                <li> <input type="checkbox" name="DataType" value="" th:text="All"/></li>
+                            </ul>
+                        </span>
+                </li>
+                <li>
+                        <span>
+                            <strong class="filterContentListNormal">Used By:</strong>
+                            <ul class="filterContentListNormal">
+                                <li> <input type="checkbox" name="UsedBy" value="" th:text="All"/></li>
+                            </ul>
+                        </span>
+                </li>
+                <li>
+                    <span>
+                        <label> <input type="checkbox" name="IgnoreSynonym" value="1" th:checked="${filter.IgnoreSynonym} ? 'checked'"/>
+                        <strong class="filterContentListNormal">Ignore synonyms</strong></label>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="filterTagList">
+                <li th:each="domain : ${filter.Domains}"><a style="text-decoration:none;" th:text="${domain.name}"/><label><input type="submit" name="removeTag" th:value="${domain.acronym}"/><span>&nbsp;x</span></label></li>
+                <li th:if="${filter.IgnoreSynonym}"><a style="text-decoration:none;">Ignore synonyms</a><label><input type="submit" name="removeTag" value="ignoreS"/><span>&nbsp;x</span></label></li>
+            </ul>
+        </div>
     </form>
 
     <ul class="quick_domain_list">

@@ -244,18 +244,16 @@ ul.pagination_controls li {
   cursor: pointer;
   display: inline-block;
 }
-.filterBox:focus{
-  outline: none;
+.filterBox + input{
+  display: none; /* hide the checkboxes */
 }
-.filterBox > div{
-  display: none;
+.filterBox + input + div{
+  display:none;
 }
-.filterBox:focus div{
-  display: inline-block;
+.filterBox + input:checked + div{
+  display:block;
 }
-.filterBox:focus-within div{
-  display: inline-block;
-}
+
 .filter_button {
         /*+border-radius: 0;*/
         -moz-border-radius: 0;
@@ -278,6 +276,53 @@ ul.pagination_controls li {
     border-top: 5px solid #1B7991;
     background-color:lightblue;
 }
+
+.filterContentListNormal {
+    list-style-type: none;
+    background-color: none;
+}
+
+.filterContentListNormal li {
+    list-style: none;
+    float:none;
+    padding-right:10px;
+}
+
+.filtercontentList ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.filtercontentList ul li{
+    float: left;
+}
+
+.filterTagList ul{
+    list-style-type: none;
+}
+
+.filterTagList li {
+    background-color: #e6f3ff;
+    border-radius: 1px;
+    color: black;
+    display:inline;
+    padding-left:10px;
+    padding-right:10px;
+
+}
+
+.filterTagList input{
+     background:none!important;
+     color:inherit;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     border-bottom:1px solid #444;
+     cursor: pointer;
+     display:none;
+}
+
 
 .hero_header IMG
 {

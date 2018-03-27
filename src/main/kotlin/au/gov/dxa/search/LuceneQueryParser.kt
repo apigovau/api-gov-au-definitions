@@ -6,7 +6,7 @@ class LuceneQueryParser {
         fun parse(query:String, domain:String = "",  fields:List<String> = listOf("name","definition","guidance","identifier")):String{
             var output = ""
 
-            if(domain != "") output =  """$output+domain:"$domain""""
+            if(domain != "") output =  """$output+domain:($domain)"""
 
             if(query == "") return output
 

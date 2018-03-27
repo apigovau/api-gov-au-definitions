@@ -51,5 +51,11 @@ class LuceneQueryTest {
         Assert.assertEquals(expected, LuceneQueryParser.parse("""("australian business number"^1.2 "abn") not quoted""","",listOf<String>("name","definition","guidance")))
     }
 
+    @Test
+    fun Test_single_word_query_witn_multi_domain() {
+        val expected = """+domain:"trc edu" +(name:(address)^2 definition:(address) guidance:(address))"""
+        Assert.assertEquals(expected, LuceneQueryParser.parse("address","trc edu",listOf<String>("name","definition","guidance")))
+    }
+
 
 }
