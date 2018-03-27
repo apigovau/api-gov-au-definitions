@@ -188,7 +188,7 @@ class DefinitionRepository {
         )
     }
 
-    fun search(query: String, domain:String, page: Int, size: Int, raw:Boolean): SearchResults<Definition> {
+    fun search(query: String, domain:String, page: Int, size: Int, raw:Boolean, ignoreSynonym: Boolean): SearchResults<Definition> {
         val maxSearch = 500
 
 
@@ -196,9 +196,8 @@ class DefinitionRepository {
         val searcher =  IndexSearcher(reader)
         val results = mutableListOf<Definition>()
         var usedSynonyms = mapOf<String, List<String>>()
-
         var queryString = query
-        if(!raw) {
+        if(!raw && !ignoreSynonym) {
             val synonymExpansion = synonymService.expand(query.toLowerCase())
             queryString = LuceneQueryParser.parse(synonymExpansion.expandedQuery, domain)
             usedSynonyms = synonymExpansion.usedSynonyms

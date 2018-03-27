@@ -48,7 +48,7 @@ class Controller {
         if(searchString != "") {
             model["showResults"] = "true"
             model["queryString"] = searchString
-            val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, raw)
+            val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, raw, search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
             populateResultsPage(pageResult, model, searchString)
             if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
@@ -58,10 +58,7 @@ class Controller {
     }
 
     private fun getFilterModel(search: SearchDTO):Filters {
-        var ignoreSyn = true
-        if ((search.getIgnoreSynonym(false) ?: "0")=="0"){
-            ignoreSyn = false
-        }
+        var ignoreSyn = search.getIgnoreSynonym(false)
         val filterDom = search.getDomainList(false) ?: listOf()
         val domains = definitionService.getDomains()
         val l : MutableList<au.gov.dxa.definition.Domain> = arrayListOf()

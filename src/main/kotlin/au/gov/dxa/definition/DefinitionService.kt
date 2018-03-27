@@ -32,12 +32,12 @@ class DefinitionService {
     }
 
 
-    fun search(query: String, domain:String, page: Int, size: Int, raw:Boolean = false): SearchResults<Definition> {
-        return repository.search(query, domain, page, size, raw)
+    fun search(query: String, domain:String, page: Int, size: Int, raw:Boolean = false, ignoreSynonym: Boolean = false): SearchResults<Definition> {
+        return repository.search(query, domain, page, size, raw, ignoreSynonym)
     }
 
-    fun searchHATEOS(query: String, domain:String, page: Int, size: Int): SearchResults<DefinitionHATEOS> {
-        val origResults = repository.search(query, domain, page, size, false)
+    fun searchHATEOS(query: String, domain:String, page: Int, size: Int, raw:Boolean = false, ignoreSynonym: Boolean = false): SearchResults<DefinitionHATEOS> {
+        val origResults = repository.search(query, domain, page, size, raw, ignoreSynonym)
         val results = origResults.results.map { DefinitionHATEOS(it) }
         return SearchResults(results, origResults.howManyResults)
     }

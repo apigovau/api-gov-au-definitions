@@ -16,20 +16,27 @@ class SearchDTO {
         this.query = content
     }
 
-    fun getIgnoreSynonym(ignoreRemovedTags : Boolean = true): String? {
-        var returnstring = ignoreSynonym
+
+
+    fun getIgnoreSynonym(ignoreRemovedTags : Boolean = true): Boolean {
+        var outputstring = ignoreSynonym
+        var ignoreSyn = true
         if (ignoreRemovedTags) {
-            return returnstring
+            outputstring = ignoreSynonym
         }
         else
         {
             if (getRemoveTagList().contains("ignoreS")){
-                returnstring = "0"
+                outputstring = "0"
             } else {
-                returnstring = ignoreSynonym
+                outputstring = ignoreSynonym
             }
-            return returnstring
         }
+
+        if (outputstring ?: "0" == "0"){
+            ignoreSyn = false
+        }
+        return ignoreSyn
     }
 
     fun setIgnoreSynonym(content: String) {

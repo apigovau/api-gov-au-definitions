@@ -32,22 +32,6 @@
                         </span>
                 </li>
                 <li>
-                        <span>
-                            <strong class="filterContentListNormal">Data Types:</strong>
-                            <ul class="filterContentListNormal">
-                                <li> <input type="checkbox" name="DataType" value="" th:text="All"/></li>
-                            </ul>
-                        </span>
-                </li>
-                <li>
-                        <span>
-                            <strong class="filterContentListNormal">Used By:</strong>
-                            <ul class="filterContentListNormal">
-                                <li> <input type="checkbox" name="UsedBy" value="" th:text="All"/></li>
-                            </ul>
-                        </span>
-                </li>
-                <li>
                     <span>
                         <label> <input type="checkbox" name="IgnoreSynonym" value="1" th:checked="${filter.IgnoreSynonym} ? 'checked'"/>
                         <strong class="filterContentListNormal">Ignore synonyms</strong></label>
@@ -57,7 +41,7 @@
         </div>
         <div>
             <ul class="filterTagList">
-                <li th:each="domain : ${filter.Domains}"><a style="text-decoration:none;" th:text="${domain.name}"/><label><input type="submit" name="removeTag" th:value="${domain.acronym}"/><span>&nbsp;x</span></label></li>
+                <li th:each="domain : ${filter.Domains}"><a style="" th:text="${domain.name}"/><label><input type="submit" name="removeTag" th:value="${domain.acronym}"/><span>&nbsp;x</span></label></li>
                 <li th:if="${filter.IgnoreSynonym}"><a style="text-decoration:none;">Ignore synonyms</a><label><input type="submit" name="removeTag" value="ignoreS"/><span>&nbsp;x</span></label></li>
             </ul>
         </div>
