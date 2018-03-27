@@ -240,7 +240,6 @@ ul.pagination_controls li {
 }
 
 .filterBox > a{
-  background: #cdf;
   cursor: pointer;
   display: inline-block;
 }
@@ -273,8 +272,10 @@ ul.pagination_controls li {
 .filterContent {
     max-width: 100%;
     width: 100%;
-    border-top: 5px solid #1B7991;
-    background-color:lightblue;
+    border-top: 2px solid #1B7991;
+    padding-bottom: 1px;
+    background-color:#dbe8f0;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .filterContentListNormal {
@@ -289,17 +290,18 @@ ul.pagination_controls li {
 }
 
 .filtercontentList ul{
-    list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 .filtercontentList ul li{
     float: left;
+    list-style-type: none;
 }
 
 .filterTagList ul{
     list-style-type: none;
+    padding-top: 2px;
 }
 
 .filterTagList li {
@@ -307,8 +309,10 @@ ul.pagination_controls li {
     border-radius: 1px;
     color: black;
     display:inline;
-    padding-left:10px;
-    padding-right:10px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:2px;
+    padding-bottom:2px;
 
 }
 
@@ -323,7 +327,7 @@ ul.pagination_controls li {
      display:none;
 }
 .filterTagList a{
-     text-decoration:none;!important;
+     text-decoration:none!important;
      text-decoration-color: white;
      background:none!important;
      color:#808080;

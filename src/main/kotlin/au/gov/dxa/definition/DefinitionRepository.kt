@@ -201,6 +201,8 @@ class DefinitionRepository {
             val synonymExpansion = synonymService.expand(query.toLowerCase())
             queryString = LuceneQueryParser.parse(synonymExpansion.expandedQuery, domain)
             usedSynonyms = synonymExpansion.usedSynonyms
+        } else if (!raw ){
+            queryString = LuceneQueryParser.parse(queryString, domain)
         }
         val queryParser = QueryParser("name",analyzer)
 
