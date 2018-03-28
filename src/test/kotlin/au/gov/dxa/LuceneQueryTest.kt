@@ -14,7 +14,7 @@ class LuceneQueryTest {
 
     @Test
     fun Test_single_word_query_tests_all_fields_with_domain() {
-        val expected = """+domain:"sbr" +(name:(address)^2 definition:(address) guidance:(address))"""
+        val expected = """+domain:(sbr) +(name:(address)^2 definition:(address) guidance:(address))"""
         Assert.assertEquals(expected, LuceneQueryParser.parse("address","sbr",listOf<String>("name","definition","guidance")))
     }
 
@@ -27,7 +27,7 @@ class LuceneQueryTest {
     @Test
     fun Test_multi_word_query_tests_all_fields_with_domain() {
         //+(name:(address details) definition:(address details) guidance:(address details)) +domain:"Financial Statistics"
-        val expected = """+domain:"sbr" +(name:(address details)^2 definition:(address details) guidance:(address details))"""
+        val expected = """+domain:(sbr) +(name:(address details)^2 definition:(address details) guidance:(address details))"""
         Assert.assertEquals(expected, LuceneQueryParser.parse("address details","sbr",listOf<String>("name","definition","guidance")))
     }
 
@@ -40,7 +40,7 @@ class LuceneQueryTest {
 
     @Test
     fun Test_empty_query_tests_all_fields_with_domain() {
-        val expected = """+domain:"sbr""""
+        val expected = """+domain:(sbr)"""
         Assert.assertEquals(expected, LuceneQueryParser.parse("","sbr",listOf<String>("name","definition","guidance")))
     }
 
@@ -53,8 +53,8 @@ class LuceneQueryTest {
 
     @Test
     fun Test_single_word_query_witn_multi_domain() {
-        val expected = """+domain:"trc edu" +(name:(address)^2 definition:(address) guidance:(address))"""
-        Assert.assertEquals(expected, LuceneQueryParser.parse("address","trc edu",listOf<String>("name","definition","guidance")))
+        val expected = """+domain:(sbr edu) +(name:(address)^2 definition:(address) guidance:(address))"""
+        Assert.assertEquals(expected, LuceneQueryParser.parse("address","sbr edu",listOf<String>("name","definition","guidance")))
     }
 
 
