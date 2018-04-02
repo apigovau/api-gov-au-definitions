@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import javax.servlet.http.HttpServletRequest
-import java.net.HttpURLConnection
 import java.net.URL
 
 
@@ -43,13 +42,13 @@ class Controller {
                      @RequestParam(defaultValue = "0") page: Int,
                      @RequestParam(defaultValue = "false") raw: Boolean): String {
         val searchString = search.getQuery() ?: ""
-
         model["search"] =  SearchDTO()
         model["domains"] = definitionService.getDomains()
+        model["filter"] = getFilterModel(search)
         if(searchString != "") {
             model["showResults"] = "true"
             model["queryString"] = searchString
-            val results = definitionService.search(searchString, "",page, size, raw)
+            val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, raw, search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
             populateResultsPage(pageResult, model, searchString)
             if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
@@ -57,6 +56,16 @@ class Controller {
 
         return "search"
     }
+
+    private fun getFilterModel(search: SearchDTO):Filters {
+        var ignoreSyn = search.getIgnoreSynonym(false)
+        val filterDom = search.getDomainList(false) ?: listOf()
+        val domains = definitionService.getDomains()
+        val l : MutableList<au.gov.dxa.definition.Domain> = arrayListOf()
+        domains.forEach{if (filterDom.contains(it.acronym)){ l.add(it) }}
+        return Filters(l,ignoreSyn)
+    }
+
 
 
 
@@ -71,11 +80,12 @@ class Controller {
         val searchString = search.getQuery() ?: ""
 
         model["search"] = SearchDTO()
+        model["filter"] = getFilterModel(search)
         if(searchString != "") {
             model["action"] =  "/definitions"
             model["showResults"] = "true"
             model["queryString"] = searchString
-            val results = definitionService.search(searchString, "",page, size, false)
+            val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, false, search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
             populateResultsPage(pageResult, model)
             if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
@@ -99,11 +109,12 @@ class Controller {
         val domainName = definitionService.getDomainByAcronym(domain)?.name ?: "No domain called '$domain' "
         if(domainName != "") model["domainName"] = domainName
         model["search"] = SearchDTO()
+        model["filter"] = getFilterModel(search)
         if(searchString != "") {
             model["action"] = "/definitions/$domain"
             model["showResults"] =  "true"
             model["queryString"] = searchString
-            val results = definitionService.search(searchString, domain,page, size)
+            val results = definitionService.search(searchString, domain,page, size,false,search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
             populateResultsPage(pageResult, model)
             if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
@@ -247,5 +258,8 @@ class Controller {
     }
 
     data class ResultWithDefinition(var result: Result, val definition: Definition)
+
+}
+class Filters(val Domains:List<au.gov.dxa.definition.Domain>, val IgnoreSynonym: Boolean){
 
 }

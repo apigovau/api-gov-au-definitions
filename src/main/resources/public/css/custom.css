@@ -238,6 +238,110 @@ ul.pagination_controls li {
     margin-right: 0;
     padding-right: 15px;
 }
+
+.filterBox > a{
+  cursor: pointer;
+  display: inline-block;
+}
+.filterBox + input{
+  display: none; /* hide the checkboxes */
+}
+.filterBox + input + div{
+  display:none;
+}
+.filterBox + input:checked + div{
+  display:block;
+}
+
+.filter_button {
+        /*+border-radius: 0;*/
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        -khtml-border-radius: 0;
+        border-radius: 0;
+        padding: 8px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-left: -5px;
+        background:#1B7991;
+}
+.filter_button:hover {
+        background:#135566;
+}
+
+.filterContent {
+    max-width: 100%;
+    width: 100%;
+    border-top: 2px solid #1B7991;
+    padding-bottom: 1px;
+    background-color:#dbe8f0;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.filterContentListNormal {
+    list-style-type: none;
+    background-color: none;
+}
+
+.filterContentListNormal li {
+    list-style: none;
+    float:none;
+    padding-right:10px;
+}
+
+.filtercontentList ul{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.filtercontentList ul li{
+    float: left;
+    list-style-type: none;
+}
+
+.filterTagList ul{
+    list-style-type: none;
+    padding-top: 2px;
+}
+
+.filterTagList li {
+    background-color: #e6f3ff;
+    border-radius: 1px;
+    color: black;
+    display:inline;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:2px;
+    padding-bottom:2px;
+
+}
+
+.filterTagList input{
+     background:none!important;
+     color:inherit;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     border-bottom:1px solid #444;
+     cursor: pointer;
+     display:none;
+}
+.filterTagList a{
+     text-decoration:none!important;
+     text-decoration-color: white;
+     background:none!important;
+     color:#808080;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     border-bottom:1px solid #444;
+     cursor: default;
+}
+.filterTagList a:hover {
+     text-decoration:none;
+     color:#808080;
+}
+
 .hero_header IMG
 {
 	width: 25vw;

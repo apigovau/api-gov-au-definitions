@@ -70,6 +70,14 @@ class StepDefinitions : En {
             getPage(lastURL!! + "?query=$query")
         }
 
+        When("^I filter on the domain \"([^\"]*)\" and search for \"([^\"]*)\"\$") { filter: String, query: String ->
+            getPage(lastURL!! + "?query=$query&domain=$filter")
+        }
+
+        When("^I ignore synonyms and search for \"([^\"]*)\"\$") { query: String ->
+            getPage(lastURL!! + "?query=$query&IgnoreSynonym=1")
+        }
+
     }
 
     private fun thereIsAnElementWithTitle(element: String, title: String):Boolean{
