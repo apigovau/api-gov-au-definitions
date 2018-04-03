@@ -17,7 +17,7 @@
         <input th:if="${showResults} != null" type="text" id="query" name="query" th:value="${queryString}" class="uikit-text-input main_search_bar"/>
         <input th:if="${showResults} == null" type="text" th:field="*{query}" placeholder="what are you looking for?" class="uikit-text-input main_search_bar"/>
         <input type="submit" value="Search" class="uikit-btn main_search_button"/>
-        <label class="filterBox" for="_1">Filters</label>
+        <label class="filterBox uikit-btn" for="_1">Filters</label>
         <input id="_1" type="checkbox"/>
         <div class="filterContent">
             <br/>
