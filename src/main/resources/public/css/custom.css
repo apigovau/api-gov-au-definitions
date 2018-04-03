@@ -239,42 +239,57 @@ ul.pagination_controls li {
     padding-right: 15px;
 }
 
-.filterBox > a{
-  cursor: pointer;
-  display: inline-block;
+.filterBox {
+    padding: 4px 8px 8px;
+    /*+border-radius: 0;*/
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -khtml-border-radius: 0;
+    border-radius: 0;
+    height: 23px;
 }
-.filterBox + input{
-  display: none; /* hide the checkboxes */
+
+.filterBox > a {
+    cursor: pointer;
+    display: inline-block;
 }
-.filterBox + input + div{
-  display:none;
+
+.filterBox + input {
+    display: none;
+    /* hide the checkboxes */
 }
-.filterBox + input:checked + div{
-  display:block;
+
+.filterBox + input + div {
+    display: none;
+}
+
+.filterBox + input:checked + div {
+    display: block;
 }
 
 .filter_button {
-        /*+border-radius: 0;*/
-        -moz-border-radius: 0;
-        -webkit-border-radius: 0;
-        -khtml-border-radius: 0;
-        border-radius: 0;
-        padding: 8px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        margin-left: -5px;
-        background:#1B7991;
+    /*+border-radius: 0;*/
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -khtml-border-radius: 0;
+    border-radius: 0;
+    padding: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: -5px;
+    background: #1B7991;
 }
+
 .filter_button:hover {
-        background:#135566;
+    background: #135566;
 }
 
 .filterContent {
     max-width: 100%;
-    width: 100%;
+    width: calc(100% - 6px);
     border-top: 2px solid #1B7991;
     padding-bottom: 1px;
-    background-color:#dbe8f0;
+    background-color: #DBE8F0;
     border-radius: 0px 0px 10px 10px;
 }
 
@@ -285,65 +300,69 @@ ul.pagination_controls li {
 
 .filterContentListNormal li {
     list-style: none;
-    float:none;
-    padding-right:10px;
+    float: none;
+    padding-right: 10px;
 }
 
-.filtercontentList ul{
+.filtercontentList ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
-.filtercontentList ul li{
+
+.filtercontentList ul li {
     float: left;
     list-style-type: none;
 }
 
-.filterTagList ul{
+.filterTagList ul {
     list-style-type: none;
     padding-top: 2px;
 }
 
 .filterTagList li {
-    background-color: #e6f3ff;
+    background-color: #E6F3FF;
     border-radius: 1px;
     color: black;
-    display:inline;
-    padding-left:15px;
-    padding-right:15px;
-    padding-top:2px;
-    padding-bottom:2px;
-
+    display: inline;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
-.filterTagList input{
-     background:none!important;
-     color:inherit;
-     border:none;
-     padding:0!important;
-     font: inherit;
-     border-bottom:1px solid #444;
-     cursor: pointer;
-     display:none;
+.filterTagList input {
+    background: none !important;
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+    display: none;
 }
-.filterTagList a{
-     text-decoration:none!important;
-     text-decoration-color: white;
-     background:none!important;
-     color:#808080;
-     border:none;
-     padding:0!important;
-     font: inherit;
-     border-bottom:1px solid #444;
-     cursor: default;
+
+.filterTagList a {
+    text-decoration: none !important;
+    text-decoration-color: white;
+    background: none !important;
+    color: #808080;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    border-bottom: 1px solid #444;
+    cursor: default;
 }
+
 .filterTagList a:hover {
-     text-decoration:none;
-     color:#808080;
+    text-decoration: none;
+    color: #808080;
 }
 
-.hero_header IMG
-{
-	width: 25vw;
+.filterContent .filtercontentList {
+    list-style-type: none;
 }
 
+.hero_header img {
+    width: 25vw;
+}
