@@ -42,29 +42,23 @@ class Controller {
                      @RequestParam(defaultValue = "0") page: Int,
                      @RequestParam(defaultValue = "false") raw: Boolean): String {
         val searchString = search.getQuery() ?: ""
+        val filter = getFilterModel(search)
         model["search"] =  SearchDTO()
         model["domains"] = definitionService.getDomains()
-        model["filter"] = getFilterModel(search)
+        model["filter"] = filter
         if(searchString != "") {
             model["showResults"] = "true"
             model["queryString"] = searchString
             val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, raw, search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
-            populateResultsPage(pageResult, model, searchString)
+            populateResultsPage(pageResult, model, searchString,filter)
             if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
         }
 
         return "search"
     }
 
-    private fun getFilterModel(search: SearchDTO):Filters {
-        var ignoreSyn = search.getIgnoreSynonym(false)
-        val filterDom = search.getDomainList(false) ?: listOf()
-        val domains = definitionService.getDomains()
-        val l : MutableList<au.gov.dxa.definition.Domain> = arrayListOf()
-        domains.forEach{if (filterDom.contains(it.acronym)){ l.add(it) }}
-        return Filters(l,ignoreSyn)
-    }
+
 
 
 
@@ -78,20 +72,20 @@ class Controller {
                              @RequestParam(defaultValue = "20") size: Int,
                              @RequestParam(defaultValue = "0") page: Int): String {
         val searchString = search.getQuery() ?: ""
-
+        val filter = getFilterModel(search)
         model["search"] = SearchDTO()
-        model["filter"] = getFilterModel(search)
+        model["filter"] = filter
         if(searchString != "") {
             model["action"] =  "/definitions"
             model["showResults"] = "true"
             model["queryString"] = searchString
             val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, false, search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
-            populateResultsPage(pageResult, model)
+            populateResultsPage(pageResult, model, searchString, filter)
             if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
         }else {
             val pageResult = PageResult(definitionService.getDefinitions(page, size), URLHelper().getURL(request), definitionService.howManyDefinitions())
-            populateResultsPage(pageResult, model)
+            populateResultsPage(pageResult, model,filter=filter)
         }
         return "browse"
     }
@@ -105,27 +99,27 @@ class Controller {
             @RequestParam(defaultValue = "0") page: Int,
             @PathVariable domain:String): String {
         val searchString = search.getQuery() ?: ""
-
         val domainName = definitionService.getDomainByAcronym(domain)?.name ?: "No domain called '$domain' "
+        val filter = getFilterModel(search)
         if(domainName != "") model["domainName"] = domainName
         model["search"] = SearchDTO()
-        model["filter"] = getFilterModel(search)
+        model["filter"] = filter
         if(searchString != "") {
             model["action"] = "/definitions/$domain"
             model["showResults"] =  "true"
             model["queryString"] = searchString
             val results = definitionService.search(searchString, domain,page, size,false,search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
-            populateResultsPage(pageResult, model)
+            populateResultsPage(pageResult, model, searchString, filter)
             if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
         }else {
             val pageResult = PageResult(definitionService.getDefinitionsForDomain(page, size, domain), URLHelper().getURL(request), definitionService.howManyDefinitionsInDomain(domain))
-            populateResultsPage(pageResult, model)
+            populateResultsPage(pageResult, model, filter=filter)
         }
         return "browse"
     }
 
-    private fun populateResultsPage(pageResult: PageResult<Definition>, model: MutableMap<String, Any>, queryString : String = "") {
+    private fun populateResultsPage(pageResult: PageResult<Definition>, model: MutableMap<String, Any>, queryString : String = "", filter: Filters? = null ) {
         val definitions = pageResult.content
         if (!pageResult.isFirstPage()) model["prevPage"] =  pageResult.thePrevPage(false)
         if (!pageResult.isLastPage()) model["nextPage"] = pageResult.theNextPage(false)
@@ -133,7 +127,7 @@ class Controller {
         model["pageURL"] =  pageResult.uri
         model["lastPageNumber"] = pageResult.getTotalPages()
         model["totalResults"] = pageResult.numberOfElements
-        model["spellCheck"] = getDictionaryCorrection(queryString, pageResult.numberOfElements)
+        model["spellCheck"] = getDictionaryCorrection(queryString, pageResult.numberOfElements, filter)
 
         val pagesToTheLeft = pageResult.pagesToTheLeft()
         if (pagesToTheLeft.size == 1) {
@@ -174,10 +168,20 @@ class Controller {
         model["definitions"] = viewDefns
     }
 
-    private fun getDictionaryCorrection(query: String, numberOfElements: Int):String{
+    private fun getDictionaryCorrection(query: String, numberOfElements: Int, filter: Filters? = null):String{
         var returnString: String = ""
+
         if (numberOfElements == 0) {
-            val url = "https://dxa-dict-service.herokuapp.com/api/values/$query"
+            val filterModel = filter ?: null
+            var queryParameters:String = "?"
+
+            if (filterModel != null){
+                filterModel.Domains.forEach{queryParameters =  queryParameters +"domain=${it.acronym}&"}
+                queryParameters = queryParameters.substring(0,queryParameters.length-1)
+            } else {
+                queryParameters = ""
+            }
+            val url = "https://dxa-dict-service.herokuapp.com/api/values/$query$queryParameters"
 
             try {
                 val con = URL(url).openConnection()
@@ -191,6 +195,15 @@ class Controller {
             return returnString
         }
         return returnString
+    }
+
+    private fun getFilterModel(search: SearchDTO):Filters {
+        var ignoreSyn = search.getIgnoreSynonym(false)
+        val filterDom = search.getDomainList(false) ?: listOf()
+        val domains = definitionService.getDomains()
+        val l : MutableList<au.gov.dxa.definition.Domain> = arrayListOf()
+        domains.forEach{if (filterDom.contains(it.acronym)){ l.add(it) }}
+        return Filters(l,ignoreSyn)
     }
 
     @RequestMapping("/definition/{domain}/{id}")
