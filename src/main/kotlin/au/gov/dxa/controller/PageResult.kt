@@ -35,7 +35,7 @@ class PageResult<T>{
     }
 
     private fun parseUri(): String{
-        var origParams = mutableMapOf<String,String>()
+        var origParams = mutableMapOf<String,MutableList<String>>()
         val params = URLEncodedUtils.parse(URI(this.uri), "UTF-8")
         val asURI = URI(this.uri)
         var newUri: String
@@ -43,21 +43,24 @@ class PageResult<T>{
         if(oldURIquery == null) oldURIquery = ""
 
         for(pair in params) {
-            origParams[pair.name] =  pair.value
+            if(!origParams.containsKey(pair.name)) origParams[pair.name] = mutableListOf()
+            origParams[pair.name]!!.add(pair.value)
         }
 
-        if("page" !in origParams) origParams["page"] = "1"
-        if("size" !in origParams) origParams["size"] = defaultPageSize.toString()
-        if(origParams["size"]!!.toInt() > 100) origParams["size"] = "100"
-        this.pageNumber = origParams["page"]!!.toInt()
-        this.pageSize = origParams["size"]!!.toInt()
+        if("page" !in origParams) origParams["page"] = mutableListOf("1")
+        if("size" !in origParams) origParams["size"] = mutableListOf(defaultPageSize.toString())
+        if(origParams["size"]!![0].toInt() > 100) origParams["size"] = mutableListOf("100")
+        this.pageNumber = origParams["page"]!![0].toInt()
+        this.pageSize = origParams["size"]!![0].toInt()
 
 
         newUri = this.uri.replace(oldURIquery, "")
         if(asURI.rawQuery == null) newUri += "?"
 
-        for ((param, value) in origParams) {
-            newUri += param + "=" + URLEncoder.encode(value, "UTF-8") + "&"
+        for ((param, values) in origParams) {
+            for(value in values) {
+                newUri += param + "=" + URLEncoder.encode(value, "UTF-8") + "&"
+            }
         }
         if(newUri.endsWith('&')) newUri = newUri.dropLast(1)
 

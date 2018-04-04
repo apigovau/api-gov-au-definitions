@@ -123,4 +123,15 @@ class PageResultsTest {
 
     }
 
+
+    @Test
+    fun PageResults_dont_mess_with_other_params_with_duplicates(){
+        val request = "http://localhost:5000/api/search?domain=trc&domain=edu&query=Name+and+date&page=1&size=20"
+        var result = PageResult<Int>(mutableListOf(0, 1, 2), request, content.size)
+        Assert.assertEquals(request, result.uri)
+        Assert.assertEquals(1, result.pageNumber)
+        Assert.assertEquals(20, result.pageSize)
+
+    }
+
 }
