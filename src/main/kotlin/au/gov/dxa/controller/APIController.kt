@@ -50,6 +50,7 @@ class APIController {
 
         val map = mutableMapOf<String,Any>()
         map["queryLogTableRows"] = queryLogger.numberOfQueries()
+        map["definitionCount"] = definitionService.howManyDefinitions()
 
         return map
     }
