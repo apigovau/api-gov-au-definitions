@@ -3,12 +3,14 @@ package au.gov.dxa.controller
 import au.gov.dxa.definition.DefinitionHATEOS
 import au.gov.dxa.definition.DefinitionService
 import au.gov.dxa.definition.Domain
+import au.gov.dxa.definition.QueryLogger
 import au.gov.dxa.relationship.RelationshipService
 import au.gov.dxa.relationship.Result
 import au.gov.dxa.synonym.SynonymService
 import au.gov.dxa.syntax.Syntax
 import au.gov.dxa.syntax.SyntaxService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.net.URL
 import javax.servlet.http.HttpServletRequest
@@ -30,7 +32,29 @@ class APIController {
     private lateinit var relationshipService: RelationshipService
 
     @Autowired
+    private lateinit var queryLogger: QueryLogger
+
+
+    @Autowired
     private val request: HttpServletRequest? = null
+
+
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    class UnauthorisedToAccessMonitoring() : RuntimeException()
+
+    @CrossOrigin
+    @GetMapping("/monitor")
+    fun test_db_stats(@RequestParam authKey:String):Map<String, Any>{
+        var authKeyEnv: String = System.getenv("authKey") ?: ""
+        if(authKey != authKeyEnv) throw UnauthorisedToAccessMonitoring()
+
+        val map = mutableMapOf<String,Any>()
+        map["queryLogTableRows"] = queryLogger.numberOfQueries()
+        map["definitionCount"] = definitionService.howManyDefinitions()
+
+        return map
+    }
+
 
     @CrossOrigin
     @GetMapping("/api/definition/{domain}/{id}")

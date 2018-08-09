@@ -103,7 +103,7 @@ class DefinitionRepository {
     }
 
     private fun addJsonDefinitions() {
-        for (domain in listOf("trc", "fs", "ss", "fi", "ce", "edu")) {
+        for (domain in listOf("trc", "fs", "ss", "fi", "ce", "edu","dimensions")) {
             val domainJson: JsonObject = JsonHelper.parse("/definitions/json/$domain.json") as JsonObject
 
             val name = domainJson.string("domain")
@@ -111,12 +111,12 @@ class DefinitionRepository {
             val version = domainJson.string("version")
             val sourceURL = domainJson.string("sourceURL")?:""
             val theDomain = Domain(name!!, acronym!!, version!!)
-            domains[acronym] = theDomain
+            if(acronym != "dims") domains[acronym] = theDomain
 
             val content = domainJson.array<JsonObject>("content")
             for (jsonDefinition in content!!) {
                 val newDefinition = extractJSONDefinition(jsonDefinition, acronym, sourceURL)
-                addDefinitionToIndexes(newDefinition, acronym)
+                addDefinitionToIndexes(newDefinition, newDefinition.domainAcronym)
             }
 
             indexWriter.commit()
@@ -183,7 +183,7 @@ class DefinitionRepository {
                 type,
                 values,
                 facets,
-                domainAcronym,
+                domains.filter { it -> it.value.name == domain}.values.first().acronym,
                 sourceURL
         )
     }

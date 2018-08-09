@@ -51,17 +51,18 @@ class QueryLogger {
     @GetMapping("/api/queries")
     fun getQueries(): QueryLog {
         var connection: Connection? = null
+        val output = mutableListOf<LoggedQuery>()
         try {
             connection = dataSource.connection
             val stmt = connection.createStatement()
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS queries (query text, expanded text, results integer, time timestamp)")
             val rs = stmt.executeQuery("SELECT * from queries")
 
-            val output = mutableListOf<LoggedQuery>()
+
             while (rs.next()) {
                 output.add(LoggedQuery(rs.getString("query"), rs.getString("expanded"), rs.getInt("results"),rs.getString("time")))
             }
-            return QueryLog(output.size, output.toList())
+
         } catch (e: Exception) {
             log.error("Something went wrong getting the queries from the database. " + e.message)
         }
@@ -69,7 +70,29 @@ class QueryLogger {
             if(connection != null) connection.close()
         }
 
-        return QueryLog(0, listOf())
+        return QueryLog(output.size, output.toList())
+    }
+
+    fun numberOfQueries():Long{
+        var connection: Connection? = null
+        var count = 0L
+        try {
+            connection = dataSource.connection
+            val stmt = connection.createStatement()
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS queries (query text, expanded text, results integer, time timestamp)")
+            val rs = stmt.executeQuery("SELECT COUNT(*) FROM queries")
+
+            rs.next()
+            count = rs.getLong(1)
+
+        } catch (e: Exception) {
+            log.error("Something went wrong getting the queries from the database. " + e.message)
+        }
+        finally {
+            if(connection != null) connection.close()
+        }
+
+        return count
     }
 
 
