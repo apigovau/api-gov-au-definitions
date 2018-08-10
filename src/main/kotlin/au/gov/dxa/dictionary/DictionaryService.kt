@@ -1,5 +1,4 @@
 package au.gov.dxa.dictionary;
-import au.gov.dxa.definition.Domain
 import au.gov.dxa.controller.Filters
 import au.gov.dxa.definition.Definition
 import au.gov.dxa.definition.DefinitionRepository
@@ -14,27 +13,32 @@ public class DictionaryService {
 
     fun getDictionaryCorrection(query:String, filters:Filters? = null):String
     {
-        if (query.length > 3) {
-            if (filters == null) {
-                return runQuery(query, repository.getAllDefinitions())
-            } else {
-                if(filters.Domains.count() > 0)
-                {
-                    var filterdList:MutableList<Definition> = mutableListOf()
-                    var domainStrings:MutableList<String> = mutableListOf()
-                    filters.Domains.forEach {domainStrings.add(it.acronym)}
-                    domainStrings.forEach{ filterdList.addAll(repository.getAllDefinitionsInDomain(it)) }
-                    return runQuery(query, filterdList)
-                } else {
+        try {
+            if (query.length > 3) {
+                if (filters == null) {
                     return runQuery(query, repository.getAllDefinitions())
+                } else {
+                    if (filters.Domains.count() > 0) {
+                        var filterdList: MutableList<Definition> = mutableListOf()
+                        var domainStrings: MutableList<String> = mutableListOf()
+                        filters.Domains.forEach { domainStrings.add(it.acronym) }
+                        domainStrings.forEach { filterdList.addAll(repository.getAllDefinitionsInDomain(it)) }
+                        return runQuery(query, filterdList)
+                    } else {
+                        return runQuery(query, repository.getAllDefinitions())
+                    }
                 }
+            } else {
+                return ""
             }
-        } else {
+        }
+        catch (e:Exception)
+        {
             return ""
         }
     }
 
-    private fun runQuery(query: String, filterdDef:MutableList<Definition>):String
+    fun runQuery(query: String, filterdDef:MutableList<Definition>):String
     {
         var results: MutableList<DistanceResult> = mutableListOf()
         filterdDef.forEach { results.add(DistanceResult(it.name, levenshtein(query,it.name))) }
