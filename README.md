@@ -60,6 +60,7 @@ A pull request is a proposal for a change to the content. Other people can comme
 
 
 
+
 Take a look at [this guide on GitHub about pull requests](https://help.github.com/articles/using-pull-requests/).
 
 
