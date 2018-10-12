@@ -237,6 +237,14 @@ class DefinitionRepository {
         return SearchResults(results, hits.size, usedSynonyms)
     }
 
+    fun getAllDefinitions():MutableList<Definition>{
+        return definitions
+    }
+
+    fun getAllDefinitionsInDomain(domain: String): MutableList<Definition>{
+        return definitions.filter { it.identifier.matches(""".*/$domain/.*""".toRegex()) }.toMutableList()
+    }
+
 
     fun findAll(pageNumber: Int, pageSize: Int): List<Definition> {
         var offset = (pageNumber-1) * capPageSize(pageSize)

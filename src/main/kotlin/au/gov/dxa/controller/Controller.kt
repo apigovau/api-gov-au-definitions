@@ -2,6 +2,7 @@ package au.gov.dxa.controller
 
 import au.gov.dxa.definition.Definition
 import au.gov.dxa.definition.DefinitionService
+import au.gov.dxa.dictionary.DictionaryService
 import au.gov.dxa.relationship.RelationshipService
 import au.gov.dxa.relationship.Result
 import au.gov.dxa.search.SearchDTO
@@ -22,6 +23,9 @@ class Controller {
 
     @Autowired
     private lateinit var definitionService: DefinitionService
+
+    @Autowired
+    private lateinit var dictionaryService: DictionaryService
 
     @Autowired
     private lateinit var synonymService: SynonymService
@@ -127,7 +131,7 @@ class Controller {
         model["pageURL"] =  pageResult.uri
         model["lastPageNumber"] = pageResult.getTotalPages()
         model["totalResults"] = pageResult.numberOfElements
-        model["spellCheck"] = getDictionaryCorrection(queryString, pageResult.numberOfElements, filter)
+        model["spellCheck"] = if (pageResult.numberOfElements == 0) dictionaryService.getDictionaryCorrection(queryString, filter) else ""
 
         val pagesToTheLeft = pageResult.pagesToTheLeft()
         if (pagesToTheLeft.size == 1) {
@@ -166,35 +170,6 @@ class Controller {
             viewDefns.add(ViewDefinition(definition.name, definition.domain, shortDef, localHref, definition.status, definition.type))
         }
         model["definitions"] = viewDefns
-    }
-
-    private fun getDictionaryCorrection(query: String, numberOfElements: Int, filter: Filters? = null):String{
-        var returnString: String = ""
-
-        if (numberOfElements == 0) {
-            val filterModel = filter ?: null
-            var queryParameters:String = "?"
-
-            if (filterModel != null){
-                filterModel.Domains.forEach{queryParameters =  queryParameters +"domain=${it.acronym}&"}
-                queryParameters = queryParameters.substring(0,queryParameters.length-1)
-            } else {
-                queryParameters = ""
-            }
-            val url = "https://dxa-dict-service.herokuapp.com/api/values/$query$queryParameters"
-
-            try {
-                val con = URL(url).openConnection()
-                con.readTimeout = 1000
-                returnString = con.inputStream.bufferedReader().readText()
-            } catch (e:Exception) {
-                
-            }
-        } else {
-            returnString = "";
-            return returnString
-        }
-        return returnString
     }
 
     private fun getFilterModel(search: SearchDTO):Filters {
@@ -273,6 +248,6 @@ class Controller {
     data class ResultWithDefinition(var result: Result, val definition: Definition)
 
 }
-class Filters(val Domains:List<au.gov.dxa.definition.Domain>, val IgnoreSynonym: Boolean){
+class Filters(val Domains:MutableList<au.gov.dxa.definition.Domain>, val IgnoreSynonym: Boolean){
 
 }
