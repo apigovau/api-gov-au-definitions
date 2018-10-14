@@ -6,16 +6,16 @@
   <div th:replace="fragments/layout :: favicon"/>
   <div th:replace="fragments/layout :: css"/>
 </head>
-<body class="uikit-body uikit-grid">
+<body class="au-body au-grid">
 
-<div th:replace="fragments/layout :: landing_head"/>
+<div th:replace="fragments/layout :: header(landing=false, current='about')"/>
 
 
 <main class="container">
 
 
-    <div class="uikit-page-alerts" role="alert">
-        <h3 class="uikit-display-1">Using search</h3>
+    <div class="au-page-alerts" role="alert">
+        <h3 class="au-display-1">Using search</h3>
         <p>Here are some examples of what you can search on</p>
         <ul>
             <li>part of an item's name: <a href="/?query=address+details+overseas">address details overseas</a></li>
@@ -24,8 +24,8 @@
         </ul>
     </div>
 
-    <div class="uikit-page-alerts" role="alert">
-        <h3 class="uikit-display-1">Advanced searching</h3>
+    <div class="au-page-alerts" role="alert">
+        <h3 class="au-display-1">Advanced searching</h3>
         <ul>
             <li>&quot; &quot; will find exact matches: <a href="/?query=&quot;address+details+state&quot;">&quot;address details state&quot;</a></li>
             <li>* is a wildcard: <a href="/?query=add*">add*</a></li>
@@ -34,8 +34,8 @@
         </ul>
     </div>
 
-    <div class="uikit-page-alerts uikit-page-alerts--warning" role="alert">
-        <h3 class="uikit-display-1">JSON API</h3>
+    <div class="au-page-alerts au-page-alerts--warning" role="alert">
+        <h3 class="au-display-1">JSON API</h3>
         <p>Everything you can do on the site is available through an API</p>
         <p>The API is <a href="https://services.ausdx.io/service/definitions-catalogue">documented in the service catalogue</a></p>
         <ul>

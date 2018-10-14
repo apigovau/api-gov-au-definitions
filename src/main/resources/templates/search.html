@@ -6,18 +6,18 @@
   <div th:replace="fragments/layout :: favicon"/>
   <div th:replace="fragments/layout :: css"/>
 </head>
-<body class="uikit-body uikit-grid">
+<body class="au-body au-grid">
 
-<div th:replace="fragments/layout :: landing_head"/>
+<div th:replace="fragments/layout :: header(landing=true, current='about')"/>
 
 
 <main class="container">
 
     <form action="#" th:action="@{/}" th:object="${search}" method="get">
-        <input th:if="${showResults} != null" type="text" id="query" name="query" th:value="${queryString}" class="uikit-text-input main_search_bar"/>
-        <input th:if="${showResults} == null" type="text" th:field="*{query}" placeholder="what are you looking for?" class="uikit-text-input main_search_bar"/>
-        <input type="submit" value="Search" class="uikit-btn main_search_button"/>
-        <label class="filterBox uikit-btn" for="_1">Filters</label>
+        <input th:if="${showResults} != null" type="text" id="query" name="query" th:value="${queryString}" class="au-text-input main_search_bar"/>
+        <input th:if="${showResults} == null" type="text" th:field="*{query}" placeholder="what are you looking for?" class="au-text-input main_search_bar"/>
+        <input type="submit" value="Search" class="au-btn main_search_button"/>
+        <label class="filterBox au-btn" for="_1">Filters</label>
         <input id="_1" type="checkbox"/>
         <div class="filterContent">
             <br/>

@@ -6,21 +6,21 @@
   <div th:replace="fragments/layout :: favicon"/>
   <div th:replace="fragments/layout :: css"/>
 </head>
-<body class="uikit-body uikit-grid">
+<body class="au-body au-grid">
 
 
-<div th:replace="fragments/layout :: main_head"/>
+<div th:replace="fragments/layout :: header(landing=false, current='about')"/>
 
 
 
 <main class="container">
     <h2 th:if="${domainName}" th:text="'Definitions from ' + ${domainName}"/>
     <form th:if="${search} != null" action="#" th:action="${action}" th:object="${search}" method="get">
-        <input th:if="${showResults} != null" type="text" id="query" name="query" th:value="${queryString}" class="uikit-text-input main_search_bar"/>
-        <input th:if="${showResults} == null" type="text" th:field="*{query}" placeholder="search" class="uikit-text-input main_search_bar"/>
-        <input type="submit" value="Search" class="uikit-btn main_search_button"/>
+        <input th:if="${showResults} != null" type="text" id="query" name="query" th:value="${queryString}" class="au-text-input main_search_bar"/>
+        <input th:if="${showResults} == null" type="text" th:field="*{query}" placeholder="search" class="au-text-input main_search_bar"/>
+        <input type="submit" value="Search" class="au-btn main_search_button"/>
 
-        <label class="filterBox uikit-btn" for="_1">Filters</label>
+        <label class="filterBox au-btn" for="_1">Filters</label>
         <input id="_1" type="checkbox"/>
         <div class="filterContent">
             <br/>

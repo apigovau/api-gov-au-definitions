@@ -1,5 +1,11 @@
-.footerlogo {
-    height: 80px;
+main.container {
+    padding-bottom: 80px;
+    padding-top: 80px;
+}
+
+dd {
+    border-left: none !important;
+    margin-left: 10px !important;
 }
 
 .used_synonyms p {
@@ -25,36 +31,14 @@ dl dl {
     position: relative;
 }
 
-.hero_logo {
-    float: right;
-}
-
 .heroline {
     padding-bottom: 0px;
     color: white;
     font-size: 1.625rem;
 }
 
-.main_header {
-    padding-bottom: 20px;
-    padding-top: 20px;
-    background-color: #254558;
-}
-
 .hero_header {
     background-color: #254558;
-}
-
-.badge {
-    background-color: white;
-    border-radius: 12px;
-    padding: 0.4em 0.8em;
-    margin-left: -2px;
-    position: relative;
-    top: -13px;
-    letter-spacing: 1px;
-    color: black;
-    font-size: 0.4rem;
 }
 
 nav.uikit-breadcrumbs {
@@ -62,10 +46,6 @@ nav.uikit-breadcrumbs {
 }
 
 @media screen and (min-width: 768px) {
-    .badge {
-        font-size: 0.8rem;
-    }
-    
     .table_definition {
         width: 50%;
     }
@@ -361,8 +341,4 @@ ul.pagination_controls li {
 
 .filterContent .filtercontentList {
     list-style-type: none;
-}
-
-.hero_header img {
-    width: 25vw;
 }
