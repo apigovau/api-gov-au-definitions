@@ -41,7 +41,11 @@ class StepDefinitions : En {
         }
 
         Given("^I am on page \"([^\"]*)\"$") { uri: String ->
-            getPage(host + uri)
+				if(!uri.contains(context)){
+                	getPage(host + context + uri)
+            	}else{
+					getPage(host + uri)
+				}
         }
 
 

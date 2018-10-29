@@ -76,7 +76,7 @@
                 <div th:remove="tag" th:each="relationshipName : ${relationships}">
                     <dt><strong th:text="${relationshipName.key}"/></dt>
                     <div th:remove="tag" th:each="relationshipValue : ${relationshipName.value}">
-                        <dd><span  th:text="${relationshipValue.result.meta.verbs[relationshipValue.result.direction]} + ' '"/><a th:attr="href=${relationshipValue.result.to    }" th:text="${relationshipValue.definition.name}"/></dd>
+                            <dd><span  th:text="${relationshipValue.result.meta.verbs[relationshipValue.result.direction]} + ' '"/><a th:attr="href=@{${relationshipValue.result.to}}" th:text="${relationshipValue.definition.name}"/></dd>
                     </div>
                 </div>
             </dl>

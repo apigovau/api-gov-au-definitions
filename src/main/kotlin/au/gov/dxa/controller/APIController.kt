@@ -59,7 +59,7 @@ class APIController {
     @CrossOrigin
     @GetMapping("/api/definition/{domain}/{id}")
     fun specific_definition(@PathVariable domain:String, @PathVariable id:String): DefinitionHATEOS {
-        val identifier = "http://dxa.gov.au/definition/$domain/$id"
+        val identifier = "http://api.gov.au/definition/$domain/$id"
         val definition =  definitionService.getDefinition(identifier)
         return DefinitionHATEOS(definition)
     }
@@ -93,7 +93,7 @@ class APIController {
     @CrossOrigin
     @GetMapping("/api/syntax/{domain}/{id}")
     fun specific_definition_syntax(@PathVariable domain:String, @PathVariable id:String): Syntax? {
-        val identifier = "http://dxa.gov.au/definition/$domain/$id"
+        val identifier = "http://api.gov.au/definition/$domain/$id"
         return syntaxService.getSyntax(identifier)
     }
 
@@ -101,7 +101,7 @@ class APIController {
     @CrossOrigin
     @GetMapping("/api/relations/{domain}/{id}")
     fun relations(@PathVariable domain:String, @PathVariable id:String): Map<String,List<Result>> {
-        val identifier = "http://dxa.gov.au/definition/$domain/$id"
+        val identifier = "http://api.gov.au/definition/$domain/$id"
         val relations =  relationshipService.getRelations(identifier)
         for(relation in relations.keys){
             for(result in relations[relation]!!) {
