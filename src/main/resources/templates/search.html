@@ -49,19 +49,19 @@
 
     <ul class="quick_domain_list">
         <li>Browse:</li>
-        <li><a href="/definitions/">All</a></li>
-        <li th:each="domain : ${domains}"><a th:attr="href='/definitions/' + ${domain.acronym}" th:text="${domain.name}"/></li>
+        <li><a th:href="@{/browse/}">All</a></li>
+        <li th:each="domain : ${domains}"><a th:attr="href='browse/' + ${domain.acronym}" th:text="${domain.name}"/></li>
     </ul>
 
 
     <div class="search_help" th:if="${showResults} == null">
-        <a href="/help">Help with search</a>
+            <a th:href="@{/help}">Help with search</a>
     </div>
 
 
     <div th:if="${showResults} != null" th:remove="tag">
         <div class="used_synonyms" th:if="${not #maps.isEmpty(usedSynonyms)}">
-            <p>These <a href="/synonyms">synonyms</a> were included in the search:</p>
+                <p>These <a th:href="@{/synonyms}">synonyms</a> were included in the search:</p>
                 <div th:remove="tag" th:each="synonym : ${usedSynonyms}">
                     <strong th:text="${synonym.key}"/><span th:text="': ' + ${synonym.value}"/><br />
                     <!--dd th:each="synonymWord : ${synonym.value}" th:text="${synonymWord}"/-->
@@ -84,7 +84,7 @@
             <tbody>
 
             <tr th:each="defn : ${definitions}">
-                <td class="table_name"><strong><a th:attr="href=${defn.identifier}" th:text="${defn.name}"/></strong></td>
+                <td class="table_name"><strong><a th:attr="href=@{'/definition/' +  ${defn.identifier}}" th:text="${defn.name}"/></strong></td>
                 <td class="table_definition" th:text="${defn.definition}"/>
                 <td class="table_domain" th:text="${defn.domain}"/>
                 <td class="table_status" th:text="${defn.status}"/>

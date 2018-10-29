@@ -70,7 +70,7 @@ class Controller {
     @RequestMapping("/help")
     fun help():String = "help"
 
-    @RequestMapping("/definitions")
+    @RequestMapping("/browse")
     internal fun definitions(@ModelAttribute search: SearchDTO,
                              model: MutableMap<String, Any>,
                              @RequestParam(defaultValue = "20") size: Int,
@@ -80,7 +80,7 @@ class Controller {
         model["search"] = SearchDTO()
         model["filter"] = filter
         if(searchString != "") {
-            model["action"] =  "/definitions"
+            model["action"] =  "/browse"
             model["showResults"] = "true"
             model["queryString"] = searchString
             val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, false, search.getIgnoreSynonym(false))
@@ -95,7 +95,7 @@ class Controller {
     }
 
 
-    @RequestMapping("/definitions/{domain}")
+    @RequestMapping("/browse/{domain}")
     internal fun definitionsForDomain(
             @ModelAttribute search: SearchDTO,
             model: MutableMap<String, Any>,
@@ -109,7 +109,7 @@ class Controller {
         model["search"] = SearchDTO()
         model["filter"] = filter
         if(searchString != "") {
-            model["action"] = "/definitions/$domain"
+            model["action"] = "/browse/$domain"
             model["showResults"] =  "true"
             model["queryString"] = searchString
             val results = definitionService.search(searchString, domain,page, size,false,search.getIgnoreSynonym(false))
@@ -162,7 +162,8 @@ class Controller {
 
         val viewDefns = mutableListOf<ViewDefinition>()
         for (definition in definitions) {
-            val localHref = definition.identifier.replace("http://dxa.gov.au", "")
+            //val localHref = definition.identifier.replace("http://dxa.gov.au", "")
+            val localHref = definition.identifier.split("/").takeLast(2).joinToString("/")
             var shortDef = definition.definition
             if (shortDef.length > maxLength) {
                 shortDef = shortDef.substring(0, maxLength) + " ..."

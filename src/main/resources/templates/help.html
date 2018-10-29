@@ -18,19 +18,19 @@
         <h3 class="au-display-1">Using search</h3>
         <p>Here are some examples of what you can search on</p>
         <ul>
-            <li>part of an item's name: <a href="/?query=address+details+overseas">address details overseas</a></li>
-            <li>part of a item's definition: <a href="/?query=code+that+is+assigned">code that is assigned</a></li>
-            <li>the identifier of a definition: <a href="/?query=de55">DE55</a></li>
+            <li>part of an item's name: <a th:href="@{/?query=address+details+overseas}">address details overseas</a></li>
+            <li>part of a item's definition: <a th:href="@{/?query=code+that+is+assigned}">code that is assigned</a></li>
+            <li>the identifier of a definition: <a th:href="@{/?query=de55}">DE55</a></li>
         </ul>
     </div>
 
     <div class="au-page-alerts" role="alert">
         <h3 class="au-display-1">Advanced searching</h3>
         <ul>
-            <li>&quot; &quot; will find exact matches: <a href="/?query=&quot;address+details+state&quot;">&quot;address details state&quot;</a></li>
-            <li>* is a wildcard: <a href="/?query=add*">add*</a></li>
-            <li>+ makes something important: <a href="/?query=address +geocode">address +geocode</a></li>
-            <li>- excludes things: <a href="/?query=add* -address">add* -address</a></li>
+            <li>&quot; &quot; will find exact matches: <a th:href="@{/?query=&quot;address+details+state&quot;}">&quot;address details state&quot;</a></li>
+            <li>* is a wildcard: <a th:href="@{/?query=add*}">add*</a></li>
+            <li>+ makes something important: <a th:href="@{/?query=address +geocode}">address +geocode</a></li>
+            <li>- excludes things: <a th:href="@{/?query=add* -address}">add* -address</a></li>
         </ul>
     </div>
 
@@ -39,10 +39,10 @@
         <p>Everything you can do on the site is available through an API</p>
         <p>The API is <a href="https://services.ausdx.io/service/definitions-catalogue">documented in the service catalogue</a></p>
         <ul>
-            <li>search for definitions: <a href="/api/search?query=government">/api/search?query=government</a></li>
-            <li>search for defintions from one domain: <a href="/api/search?query=government&amp;domain=fs">/api/search?query=government&amp;domain=fs</a></li>
-            <li>browse definitions: <a href="/api/definitions">/api/definitions</a></li>
-            <li>get the details of a specific definition: <a href="/api/definition/other/de55">/api/definition/other/de55</a></li>
+            <li>search for definitions: <a th:href="@{/api/search?query=government}">/api/search?query=government</a></li>
+            <li>search for defintions from one domain: <a th:href="@{/api/search?query=government&amp;domain=fs}">/api/search?query=government&amp;domain=fs</a></li>
+            <li>browse definitions: <a th:href="@{/api/definitions}">/api/definitions</a></li>
+            <li>get the details of a specific definition: <a th:href="@{/api/definition/trc/de55}">/api/definition/trc/de55</a></li>
         </ul>
     </div>
 

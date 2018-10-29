@@ -25,7 +25,7 @@
         <dd th:if="${guidance} != ''" th:utext="${guidance}" />
 
         <dt>Unique identifier</dt>
-        <dd><a th:attr="href=${href}" th:text="${identifier}"/></dd>
+        <dd><a th:attr="href=@{${href}}" th:text="${identifier}"/></dd>
 
         <div th:remove="tag" th:if="${source}">
             <dt>Source</dt>
@@ -66,7 +66,7 @@
 
 
         <dt>API url</dt>
-        <dd><a th:attr="href='/api' + ${href}" th:text="${api}"/></dd>
+        <dd><a th:attr="href=@{'/api' + ${href}}" th:text="${api}"/></dd>
 
         <div th:remove="tag" th:if="${relationships}">
             <dt>Related definitions</dt>

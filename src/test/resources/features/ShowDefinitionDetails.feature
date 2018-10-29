@@ -12,7 +12,7 @@ Feature: Definition Details
 
   Scenario: Browse tax definitions
     When I click the "Taxation and revenue collection" link
-    Then I will be on the page "/definitions/trc" and see "Taxation and revenue collection" in a "h2"
+    Then I will be on the page "/browse/trc" and see "Taxation and revenue collection" in a "h2"
     Then I will see "Electronic Contact Facsimile Area Code" in a "a"
     When I click the "Electronic Contact Facsimile Area Code" link
     Then I will be on the page "/definition/trc/de10" and see "Electronic Contact Facsimile Area Code" in a "h1"

@@ -18,7 +18,7 @@ $ gradle build
 $ heroku local:start
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should now be running on [localhost:5000/definitions/](http://localhost:5000/definitions/).
 
 ## Deploying to Heroku
 

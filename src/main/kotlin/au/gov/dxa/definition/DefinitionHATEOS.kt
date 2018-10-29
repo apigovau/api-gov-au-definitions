@@ -8,7 +8,7 @@ class DefinitionHATEOS(definition: Definition){
     var content = definition
 
     @JsonIgnore
-    private val hrefLinks = mapOf("syntax" to "http://definitions.ausdx.io/api/syntax", "relations" to "http://definitions.ausdx.io/api/relations")
+    private val hrefLinks = mapOf("syntax" to "http://api.gov.au/definitions/api/syntax", "relations" to "http://api.gov.au/definitions/api/relations")
 
 
     fun getLinks():List<Map<String,String>>{
