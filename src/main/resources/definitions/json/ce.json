@@ -10,7 +10,7 @@
       "status": "Standard",
       "definition": "An address representing a location.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce1",
+      "identifier": "http://api.gov.au/definition/ce/ce1",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -24,7 +24,7 @@
       "status": "Standard",
       "definition": "The complete address with or without formatting.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce2",
+      "identifier": "http://api.gov.au/definition/ce/ce2",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -38,7 +38,7 @@
       "status": "Standard",
       "definition": "The purpose of the address with regards to the associated agent.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce3",
+      "identifier": "http://api.gov.au/definition/ce/ce3",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -52,7 +52,7 @@
       "status": "Standard",
       "definition": "The Post Office Box number.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce4",
+      "identifier": "http://api.gov.au/definition/ce/ce4",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -66,7 +66,7 @@
       "status": "Standard",
       "definition": "The name of a passage or way through from one location to another.",
       "guidance": "Aligns with Street Address in Australian context but semantically is more inclusive of addresses that do not necessarily adjoin a road, such as waterways. Aligns with INSPIRE, a multijurisdictional standard. ",
-      "identifier": "http://dxa.gov.au/definition/ce/ce5",
+      "identifier": "http://api.gov.au/definition/ce/ce5",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -80,7 +80,7 @@
       "status": "Standard",
       "definition": "A number or a sequence of characters that uniquely identifies the locator within the relevant scope.",
       "guidance": "Defined by INSPIRE, synonymous with building number, apartment number, etc.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce6",
+      "identifier": "http://api.gov.au/definition/ce/ce6",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -94,7 +94,7 @@
       "status": "Standard",
       "definition": "A proper noun applied to the real world entity identified by the address.",
       "guidance": "The locator name is a proper noun applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building. [INSPIRE]",
-      "identifier": "http://dxa.gov.au/definition/ce/ce7",
+      "identifier": "http://api.gov.au/definition/ce/ce7",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -108,7 +108,7 @@
       "status": "Standard",
       "definition": "The name of a geographic area or locality that groups a number of addressable objects for addressing purposes, without being an administrative unit.",
       "guidance": "Aligns to Locality, City in Australian context.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce8",
+      "identifier": "http://api.gov.au/definition/ce/ce8",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -122,7 +122,7 @@
       "status": "Standard",
       "definition": "The region of the address, usually a county, state or other such area that typically encompasses several localities.",
       "guidance": "Aligns with State in Australian context.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce9",
+      "identifier": "http://api.gov.au/definition/ce/ce9",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -136,7 +136,7 @@
       "status": "Standard",
       "definition": "The uppermost administrative unit for the address, almost always a country.",
       "guidance": "Aligns with Country in Australian context.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce10",
+      "identifier": "http://api.gov.au/definition/ce/ce10",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -150,7 +150,7 @@
       "status": "Standard",
       "definition": "The post code, a.k.a. postal code, ZIP code, etc.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce11",
+      "identifier": "http://api.gov.au/definition/ce/ce11",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -164,7 +164,7 @@
       "status": "Standard",
       "definition": "A globally unique identifier for this instance of the address.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce12",
+      "identifier": "http://api.gov.au/definition/ce/ce12",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -178,7 +178,7 @@
       "status": "Standard",
       "definition": "An entity that is able to carry out actions.",
       "guidance": "The Agent class encompasses organisations, natural persons, groups etc.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce13",
+      "identifier": "http://api.gov.au/definition/ce/ce13",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -192,7 +192,7 @@
       "status": "Standard",
       "definition": "A membership based on defined interests regarding a business the agent is a member.",
       "guidance": "Synonymous with Association",
-      "identifier": "http://dxa.gov.au/definition/ce/ce14",
+      "identifier": "http://api.gov.au/definition/ce/ce14",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -206,7 +206,7 @@
       "status": "Standard",
       "definition": "An entity that is able to carry out actions.",
       "guidance": "The Agent class does encompass organisations, natural persons, groups etc.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce15",
+      "identifier": "http://api.gov.au/definition/ce/ce15",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -220,7 +220,7 @@
       "status": "Standard",
       "definition": "The type of association held by the agent to the business.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce16",
+      "identifier": "http://api.gov.au/definition/ce/ce16",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -234,7 +234,7 @@
       "status": "Standard",
       "definition": "The business the agent has an association with.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce17",
+      "identifier": "http://api.gov.au/definition/ce/ce17",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -248,7 +248,7 @@
       "status": "Standard",
       "definition": "The period of time an agent held this association.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce18",
+      "identifier": "http://api.gov.au/definition/ce/ce18",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -262,7 +262,7 @@
       "status": "Standard",
       "definition": "A Change Events is an event that has a significant impact on an organisation resulting in organisational change.",
       "guidance": "An example would be the formation of the Business or the change in legal entity structure of a business.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce19",
+      "identifier": "http://api.gov.au/definition/ce/ce19",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -276,7 +276,7 @@
       "status": "Standard",
       "definition": "The type of  the change event.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce20",
+      "identifier": "http://api.gov.au/definition/ce/ce20",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -290,7 +290,7 @@
       "status": "Standard",
       "definition": "A description of the Change Event.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce21",
+      "identifier": "http://api.gov.au/definition/ce/ce21",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -304,7 +304,7 @@
       "status": "Standard",
       "definition": "Identifies the subject of the change event.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce22",
+      "identifier": "http://api.gov.au/definition/ce/ce22",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -318,7 +318,7 @@
       "status": "Standard",
       "definition": "Identifies the resulting organisation of the change event.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce23",
+      "identifier": "http://api.gov.au/definition/ce/ce23",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -332,7 +332,7 @@
       "status": "Standard",
       "definition": "The period of time over which the change took place.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce24",
+      "identifier": "http://api.gov.au/definition/ce/ce24",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -346,7 +346,7 @@
       "status": "Standard",
       "definition": "A geometry representing a location.",
       "guidance": "A geometry can be encoded in different formats including WKT, GML, KML, RDF+WKT/GML (GeoSPARQL), RDF (WGS84 lat/long, schema.org) and GeoHash URI references.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce25",
+      "identifier": "http://api.gov.au/definition/ce/ce25",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -360,7 +360,7 @@
       "status": "Standard",
       "definition": "The ordered list of coordinates of the geometry.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce26",
+      "identifier": "http://api.gov.au/definition/ce/ce26",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -374,7 +374,7 @@
       "status": "Standard",
       "definition": "The Coordinate Reference System (CRS) used to encode the coordinates.",
       "guidance": "A coordinate reference system (CRS) is a coordinate-based local, regional or global system used to locate geographical entities.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce27",
+      "identifier": "http://api.gov.au/definition/ce/ce27",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -388,7 +388,7 @@
       "status": "Standard",
       "definition": "The type of the geometry.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce28",
+      "identifier": "http://api.gov.au/definition/ce/ce28",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -402,7 +402,7 @@
       "status": "Standard",
       "definition": "A jurisdiction, typically a country, dealing with and making pronouncements on legal matters.",
       "guidance": "A jurisdiction can confer citizenship or residency rights to a person.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce29",
+      "identifier": "http://api.gov.au/definition/ce/ce29",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -416,7 +416,7 @@
       "status": "Standard",
       "definition": "The name of the jurisdiction.",
       "guidance": "Using plain text names of countries is strongly discouraged.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce30",
+      "identifier": "http://api.gov.au/definition/ce/ce30",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -430,7 +430,7 @@
       "status": "Standard",
       "definition": "The URI for the jurisdiction.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce31",
+      "identifier": "http://api.gov.au/definition/ce/ce31",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -444,7 +444,7 @@
       "status": "Standard",
       "definition": "A business that is legally registered.",
       "guidance": "In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc.\n\nThis makes legal entities distinct from the concept of organisations, groups or sole traders. Many organisations exist that are not legal entities; yet to the outside world they have staff, hierarchies, locations etc. Other organisations exist that are an umbrella for several legal entities (universities are often good examples of this). This vocabulary is concerned solely with registered legal entities and does not attempt to cover all possible trading bodies.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce32",
+      "identifier": "http://api.gov.au/definition/ce/ce32",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -458,7 +458,7 @@
       "status": "Standard",
       "definition": "The identifier given to the legal entity by the authority with which it is registered.",
       "guidance": "The legal status of a business is conferred on it by an authority within a given jurisdiction. The Legal Identifier is therefore a fundamental relationship between a legal entity and the authority with which it is registered. The details of the registration are provided as attributes of the Identifier data type. There is no restriction on the type of legal identifier. In many countries the business register's identifier is the relevant data point. The tax number often fulfils this function in Spain.\n\nA legal entity shall have a unique legal identifier and a legal identifier shall define only one legal entity. A legal entity can only have that status if it is given by a suitable authority.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce33",
+      "identifier": "http://api.gov.au/definition/ce/ce33",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -472,7 +472,7 @@
       "status": "Standard",
       "definition": "A formally-issued identifier for the legal entity, other than the one that confers legal status upon it.",
       "guidance": "Legal entities may have any number of identifiers (but only one legal identifier). For example, in many jurisdictions, a business will have one or more tax numbers associated with them which do not, by themselves, confer legal entity status. The Identifier property must not be used to link to the identifier issued by the authority that conferred legal entity status on a business.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce34",
+      "identifier": "http://api.gov.au/definition/ce/ce34",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -486,7 +486,7 @@
       "status": "Standard",
       "definition": "The legal name of the business.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce35",
+      "identifier": "http://api.gov.au/definition/ce/ce35",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -500,7 +500,7 @@
       "status": "Standard",
       "definition": "A recognized name other than the legal name.",
       "guidance": "Aligns with Business names in the Australian context.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce36",
+      "identifier": "http://api.gov.au/definition/ce/ce36",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -514,7 +514,7 @@
       "status": "Standard",
       "definition": "The type of the business.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce37",
+      "identifier": "http://api.gov.au/definition/ce/ce37",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -528,7 +528,7 @@
       "status": "Standard",
       "definition": "The status of the business.",
       "guidance": "\n\nBest Practice for recording various other status levels is to use the relevant jurisdiction's terms and to do so in a consistent manner.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce38",
+      "identifier": "http://api.gov.au/definition/ce/ce38",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -542,7 +542,7 @@
       "status": "Standard",
       "definition": "The activity of the business.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce39",
+      "identifier": "http://api.gov.au/definition/ce/ce39",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -556,7 +556,7 @@
       "status": "Standard",
       "definition": "The registered address of the business.",
       "guidance": "In almost all jurisdictions, legal entities must register a postal address. This may or may not be the actual address at which the legal entity does its business - it is commonly the address of their lawyer or accountant - but it is the address to which formal communications can be sent.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce40",
+      "identifier": "http://api.gov.au/definition/ce/ce40",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -570,7 +570,7 @@
       "status": "Standard",
       "definition": "An address related to the business, other than the registered address.",
       "guidance": "Asserting the address relationship implies that the legal entity has an address, without further semantics.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce41",
+      "identifier": "http://api.gov.au/definition/ce/ce41",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -584,7 +584,7 @@
       "status": "Standard",
       "definition": "A location related to the business.",
       "guidance": "Asserting the Location relationship implies only that the legal entity has some connection to a location in time or space. It does not imply that the legal entity is necessarily at that location at the time when the assertion is made.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce42",
+      "identifier": "http://api.gov.au/definition/ce/ce42",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -598,7 +598,7 @@
       "status": "Standard",
       "definition": "An organisational unit of the business that is not a legal entity in its own right.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce43",
+      "identifier": "http://api.gov.au/definition/ce/ce43",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -612,7 +612,7 @@
       "status": "Standard",
       "definition": "A contact point for the business.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce44",
+      "identifier": "http://api.gov.au/definition/ce/ce44",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -626,7 +626,7 @@
       "status": "Standard",
       "definition": "An organisation unit of a legally registered business.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce45",
+      "identifier": "http://api.gov.au/definition/ce/ce45",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -640,7 +640,7 @@
       "status": "Standard",
       "definition": "A formally-issued identifier for the organisational unit.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce46",
+      "identifier": "http://api.gov.au/definition/ce/ce46",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -654,7 +654,7 @@
       "status": "Standard",
       "definition": "The name of the organisational unit.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce47",
+      "identifier": "http://api.gov.au/definition/ce/ce47",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -668,7 +668,7 @@
       "status": "Standard",
       "definition": "The activity of the organisational unit.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce48",
+      "identifier": "http://api.gov.au/definition/ce/ce48",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -682,7 +682,7 @@
       "status": "Standard",
       "definition": "An address related to the organisational unit.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce49",
+      "identifier": "http://api.gov.au/definition/ce/ce49",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -696,7 +696,7 @@
       "status": "Standard",
       "definition": "A location related to the organisational unit.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce50",
+      "identifier": "http://api.gov.au/definition/ce/ce50",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -710,7 +710,7 @@
       "status": "Standard",
       "definition": "A contact point for the organisation unit.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce51",
+      "identifier": "http://api.gov.au/definition/ce/ce51",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -724,7 +724,7 @@
       "status": "Standard",
       "definition": "An identifiable geographic place.",
       "guidance": "ISO 19112 defines a location as \"an identifiable geographic place\" With this in mind, \"Eiffel Tower\", \"Madrid\" and \"California\" are all locations and this is a common way of representing locations in public sector data, i.e. simply by using a recognised name. Such identifiers are common although they can be highly ambiguous as many places share the same or similar names.\n\nLocations can be described in three principal ways: by using a place name, a geometry or an address. The specific context will determine which method of describing a location is most appropriate.\n\nIn addition to a simple (string) label or name for a Location, this vocabulary defines a property that allows a Location to be defined by a URI, such as a URI used in the Named Authority Lists of the EU Publications Office (NALs) or a GeoNames URI.\n\nThe Core Vocabularies make a minimum number of assumptions about what data will be encoded. A single address may be defined in different ways, a geometry may be defined using different coordinate reference systems and a single place may have no recognised name or multiple names. However, it is clearly nonsense to define a location without any properties or to provide multiple instances of the same property with conflicting values.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce52",
+      "identifier": "http://api.gov.au/definition/ce/ce52",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -738,7 +738,7 @@
       "status": "Standard",
       "definition": "A proper noun applied to a spatial object.",
       "guidance": "The country codes defined in ISO 3166 may be used as geographic names and these are generally preferred over either the long form or short form of a country's name (as they are less error prone). The Publications Office of the European Union recommends the use of ISO 3166-1 codes for countries in all cases except two:\n- use 'UK' in preference to the ISO 3166 code GB for the United Kingdom;\n- use 'EL' in preference to the ISO 3166 code GR for Greece.\nWhere a country has changed its name or no longer exists (such as Czechoslovakia, Yugoslavia, etc.) use the ISO 3166-3 code.\n\nKnown diversity that one has to deal with when exchanging country names between different communication partners without relying on an agreed code list are:\na. Long form vs. short form of a country name (e.g. “Federal Republic of Germany” vs. Germany),\nb. Different languages (Italy vs. Italia),\nc. Historic name vs. Current name (Burma vs. Myanmar),\nd. Ambiguity of similar sounding countries (“Republic of the Congo” vs. “Democratic Republic of the Congo”).",
-      "identifier": "http://dxa.gov.au/definition/ce/ce53",
+      "identifier": "http://api.gov.au/definition/ce/ce53",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -752,7 +752,7 @@
       "status": "Standard",
       "definition": "A URI that identifies the location.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce54",
+      "identifier": "http://api.gov.au/definition/ce/ce54",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -766,7 +766,7 @@
       "status": "Standard",
       "definition": "An address representing the location.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce55",
+      "identifier": "http://api.gov.au/definition/ce/ce55",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -780,7 +780,7 @@
       "status": "Standard",
       "definition": "A geometry representing the location.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce56",
+      "identifier": "http://api.gov.au/definition/ce/ce56",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -794,7 +794,7 @@
       "status": "Standard",
       "definition": "A natural person.",
       "guidance": "This vocabulary does not cover the societal relationships that an individual person has with, for example, other members of their family or their employer. The concern here is with the key aspects that define the natural person. The dividing line between describing a natural person and describing their identity is imprecise.\n\nThe properties of the Person class do not have any cardinality restrictions and as such all are optional. However, guidance is provided for the usage of each property.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce57",
+      "identifier": "http://api.gov.au/definition/ce/ce57",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -808,7 +808,7 @@
       "status": "Standard",
       "definition": "A formally-issued identifier for the person.",
       "guidance": "For many systems, the identifier is the key piece of information about an individual and therefore an important part of the Core Vocabularies. However, all identifiers are context-specific and when exchanging data between systems it is important to provide additional information that makes this explicit.\n\nPeople may have any number of identifiers. For example, an individual may be issued with identifiers for everything from social security to club membership.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce58",
+      "identifier": "http://api.gov.au/definition/ce/ce58",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -822,7 +822,7 @@
       "status": "Standard",
       "definition": "The complete name of the person as one string.",
       "guidance": "In addition to the content of Given Name, Family Name and, in some systems, Patronymic Name, this property can carry additional parts of a person’s name such as titles, middle names or suffixes like “the third” or names which are neither a given nor a family name. \n\nThe Full Name is the most reliable label for an individual and as such its use is strongly encouraged, irrespective of whether that name is broken down using the more granular elements. It is anticipated that some systems will only provide or process the full name of a person. Where an individual has more than one full legal name (a relatively rare but not unknown phenomenon), the full name property can be used more than once. In this case, however, the granular name elements should not be used since the intention is that these provide a breakdown of the full name and it will not be clear of which full name this is true. \n\nNote that the vocabulary provides an Alternative Name property. This allows name(s) to be recorded that have no legal status but that nevertheless are the names by which an individual is generally known.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce59",
+      "identifier": "http://api.gov.au/definition/ce/ce59",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -836,7 +836,7 @@
       "status": "Standard",
       "definition": "The denominator(s) that identify the person within a family.",
       "guidance": "The given names are given to a person by his or her parents at birth or may be legally recognised as 'given names' through a formal process. All given names are ordered in one field so that, for example, the Given Name for Johan Sebastian Bach is 'Johan Sebastian.'",
-      "identifier": "http://dxa.gov.au/definition/ce/ce60",
+      "identifier": "http://api.gov.au/definition/ce/ce60",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -850,7 +850,7 @@
       "status": "Standard",
       "definition": "A name that is usually shared by members of a family.",
       "guidance": "The Family Name also carries prefixes or suffixes which are part of the Family Name, e.g. “de Boer”, “van de Putte”, “von und zu Orlow”. Multiple family names, such as are commonly found in Hispanic countries, are recorded in the single Family Name field so that, for example, Miguel de Cervantes Saavedra's Family Name would be recorded as \"Cervantes Saavedra.\"",
-      "identifier": "http://dxa.gov.au/definition/ce/ce61",
+      "identifier": "http://api.gov.au/definition/ce/ce61",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -864,7 +864,7 @@
       "status": "Standard",
       "definition": "The titles associated to a person which are affixed at the beginning of the person's name.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce62",
+      "identifier": "http://api.gov.au/definition/ce/ce62",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -878,7 +878,7 @@
       "status": "Standard",
       "definition": "The titles associated to a person which are affixed at the end of the person's name.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce63",
+      "identifier": "http://api.gov.au/definition/ce/ce63",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -892,7 +892,7 @@
       "status": "Standard",
       "definition": "The gender of the person.",
       "guidance": "The gender of an individual should be recorded using a controlled vocabulary that is appropriate for the specific context. In some cases the chromosomal or physical state of an individual will be more important than the gender that they express; in others the reverse will be true. What is always important is that the controlled vocabulary used to describe an individual's gender is stated explicitly, using the relevant attributes of the Code data type.\n\nExamples of controlled vocabularies that can be used to describe a person's gender are ISO/IEC 5218:2004, Eurostat SCL - Sex, HL7, and SDMX.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce64",
+      "identifier": "http://api.gov.au/definition/ce/ce64",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -906,7 +906,7 @@
       "status": "Standard",
       "definition": "The full name of the person at the time of her birth, irrespective of any subsequent changes.",
       "guidance": "All data associated with an individual are subject to change. Names can change for a variety of reasons, either formally or informally, and new information may come to light that means that a correction or clarification can be made to an existing record. Birth names tend to be persistent however and for this reason they are recorded by some public sector information systems. There is no granularity for birth name - the full name should be recorded in a single field.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce65",
+      "identifier": "http://api.gov.au/definition/ce/ce65",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -920,7 +920,7 @@
       "status": "Standard",
       "definition": "The date on which the person was born.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce66",
+      "identifier": "http://api.gov.au/definition/ce/ce66",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -934,7 +934,7 @@
       "status": "Standard",
       "definition": "The date on which the person deceased.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce67",
+      "identifier": "http://api.gov.au/definition/ce/ce67",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -948,7 +948,7 @@
       "status": "Standard",
       "definition": "The country where the person was born.",
       "guidance": "A person's Country Of Birth is defined using the Location class. A plain code like \"DE\" should be provided as a Geographic Name whereas a URI should be provided as a Geographic Identifier. Ideally, provide both.\n\nProviding a simple country name is problematic and should be avoided whereas using a standardised system that allows the use of a code list for country names has a lot of potential for increasing semantic interoperability.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce68",
+      "identifier": "http://api.gov.au/definition/ce/ce68",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -962,7 +962,7 @@
       "status": "Standard",
       "definition": "The country where the person deceased.",
       "guidance": "A person's Country Of Death is defined using the Location class. A plain code like \"DE\" should be provided as a Geographic Name whereas a URI should be provided as a Geographic Identifier. Ideally, provide both.\n\nProviding a simple country name is problematic and should be avoided whereas using a standardised system that allows the use of a code list for country names has a lot of potential for increasing semantic interoperability.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce69",
+      "identifier": "http://api.gov.au/definition/ce/ce69",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -976,7 +976,7 @@
       "status": "Standard",
       "definition": "The location where the person was born.",
       "guidance": "The Place Of Birth is given using the Location class. The use of Geographic Identifier is preferred as it is unambiguous. However, public sector data typically uses simple names to record places and this is fully supported through the Geographic Name property.\n\nAlthough highly unlikely in practice, it is possible to define a place of birth in terms of an address or, even less likely, a geometry given as coordinates.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce70",
+      "identifier": "http://api.gov.au/definition/ce/ce70",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -990,7 +990,7 @@
       "status": "Standard",
       "definition": "The location where the person deceased.",
       "guidance": "The Place Of Death is given using the Location class. The use of Geographic Identifier is preferred as it is unambiguous. However, public sector data typically uses simple names to record places and this is fully supported through the Geographic Name property.\n\nAlthough highly unlikely in practice, it is possible to define a place of death in terms of an address or, even less likely, a geometry given as coordinates.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce71",
+      "identifier": "http://api.gov.au/definition/ce/ce71",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -1004,7 +1004,7 @@
       "status": "Standard",
       "definition": "The jurisdiction that has conferred citizenship rights on the person.",
       "guidance": "The citizenship rights include rights such as the right to vote, to receive certain protection from the community or the issuance of a passport. Multiple citizenships are recorded as multiple instances of the Citizenship relationship.\n\nCitizenship is information needed by many cross-border use cases and is a legal status as opposed to the more culturally-focussed and less well-defined term \"nationality\".",
-      "identifier": "http://dxa.gov.au/definition/ce/ce72",
+      "identifier": "http://api.gov.au/definition/ce/ce72",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -1018,7 +1018,7 @@
       "status": "Standard",
       "definition": "The jurisdiction in which the person resides, typically providing the person with a subset of the rights of a citizen.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce73",
+      "identifier": "http://api.gov.au/definition/ce/ce73",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -1032,7 +1032,7 @@
       "status": "Standard",
       "definition": "An address related to the person.",
       "guidance": "Asserting the address relationship implies that the person has an address.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce74",
+      "identifier": "http://api.gov.au/definition/ce/ce74",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -1046,7 +1046,7 @@
       "status": "Standard",
       "definition": "A contact point for the person.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce75",
+      "identifier": "http://api.gov.au/definition/ce/ce75",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -1060,7 +1060,7 @@
       "status": "Standard",
       "definition": "A point of contact for an agent.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce76",
+      "identifier": "http://api.gov.au/definition/ce/ce76",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -1074,7 +1074,7 @@
       "status": "Standard",
       "definition": "The type of contact point.",
       "guidance": "Personal, Work etc.",
-      "identifier": "http://dxa.gov.au/definition/ce/ce77",
+      "identifier": "http://api.gov.au/definition/ce/ce77",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -1088,7 +1088,7 @@
       "status": "Standard",
       "definition": "The telephone number an agent can be contacted.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce78",
+      "identifier": "http://api.gov.au/definition/ce/ce78",
       "usage": [],
       "datatype": {
         "facets": {},
@@ -1102,7 +1102,7 @@
       "status": "Standard",
       "definition": "The email address an agent can be contacted.",
       "guidance": "",
-      "identifier": "http://dxa.gov.au/definition/ce/ce79",
+      "identifier": "http://api.gov.au/definition/ce/ce79",
       "usage": [],
       "datatype": {
         "facets": {},

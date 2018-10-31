@@ -70,7 +70,7 @@ class Controller {
     @RequestMapping("/help")
     fun help():String = "help"
 
-    @RequestMapping("/definitions")
+    @RequestMapping("/browse")
     internal fun definitions(@ModelAttribute search: SearchDTO,
                              model: MutableMap<String, Any>,
                              @RequestParam(defaultValue = "20") size: Int,
@@ -80,7 +80,7 @@ class Controller {
         model["search"] = SearchDTO()
         model["filter"] = filter
         if(searchString != "") {
-            model["action"] =  "/definitions"
+            model["action"] =  "/browse"
             model["showResults"] = "true"
             model["queryString"] = searchString
             val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, false, search.getIgnoreSynonym(false))
@@ -95,7 +95,7 @@ class Controller {
     }
 
 
-    @RequestMapping("/definitions/{domain}")
+    @RequestMapping("/browse/{domain}")
     internal fun definitionsForDomain(
             @ModelAttribute search: SearchDTO,
             model: MutableMap<String, Any>,
@@ -109,7 +109,7 @@ class Controller {
         model["search"] = SearchDTO()
         model["filter"] = filter
         if(searchString != "") {
-            model["action"] = "/definitions/$domain"
+            model["action"] = "/browse/$domain"
             model["showResults"] =  "true"
             model["queryString"] = searchString
             val results = definitionService.search(searchString, domain,page, size,false,search.getIgnoreSynonym(false))
@@ -162,7 +162,8 @@ class Controller {
 
         val viewDefns = mutableListOf<ViewDefinition>()
         for (definition in definitions) {
-            val localHref = definition.identifier.replace("http://dxa.gov.au", "")
+            //val localHref = definition.identifier.replace("http://api.gov.au", "")
+            val localHref = definition.identifier.split("/").takeLast(2).joinToString("/")
             var shortDef = definition.definition
             if (shortDef.length > maxLength) {
                 shortDef = shortDef.substring(0, maxLength) + " ..."
@@ -184,7 +185,7 @@ class Controller {
     @RequestMapping("/definition/{domain}/{id}")
     internal fun detail(model: MutableMap<String, Any>, @PathVariable domain:String, @PathVariable id:String) : String{
 
-        val identifier = """http://dxa.gov.au/definition/$domain/$id"""
+        val identifier = """http://api.gov.au/definition/$domain/$id"""
         val definition = definitionService.getDefinition(identifier)
 
         model["name"] = definition.name
@@ -201,9 +202,9 @@ class Controller {
                 .replace("  ", "&nbsp;&nbsp;")
 
         model["identifier"] = definition.identifier
-        model["href"] = definition.identifier.replace("http://dxa.gov.au","")
+        model["href"] = definition.identifier.replace("http://api.gov.au","")
         model["usage"] = definition.usage
-        model["api"] = definition.identifier.replace("http://dxa.gov.au","http://dxa.gov.au/api")
+        model["api"] = definition.identifier.replace("http://api.gov.au","http://api.gov.au/api")
         if(definition.type != "") model["type"] = definition.type
         if(definition.sourceURL != "") model["source"] = definition.sourceURL
         model["typeValues"] = definition.values
@@ -230,7 +231,8 @@ class Controller {
             val definitions = mutableListOf<ResultWithDefinition>()
             for (result in relations[relationName]!!) {
                 val definition = definitionService.getDefinition(result.to)
-                val newURL = URLHelper().convertURL(request, result.to)
+                var newURL = URLHelper().convertURL(request, result.to)
+                newURL = "/definition" + Regex(".*definition").replace(newURL,"")
                 val newResult = Result(result.meta, result.direction, newURL, definition.name)
                 definitions.add(ResultWithDefinition(newResult, definition))
             }

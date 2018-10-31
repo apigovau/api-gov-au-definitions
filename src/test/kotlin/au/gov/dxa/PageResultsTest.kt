@@ -7,12 +7,12 @@ import org.junit.Test
 class PageResultsTest {
 
     var content: MutableList<Int> = mutableListOf(0,1,2,3,4,5,6,7,8,9)
-    val defaultPage: String = "http://dxa.gov.au/browse"
-    val defaultPageParams: String = "http://dxa.gov.au/browse?page=1&size=20"
-    val firstPage: String = "http://dxa.gov.au/browse?page=1&size=3"
-    val secondPage: String = "http://dxa.gov.au/browse?page=2&size=3"
-    val thirdPage: String = "http://dxa.gov.au/browse?page=3&size=3"
-    val lastPage: String = "http://dxa.gov.au/browse?page=4&size=3"
+    val defaultPage: String = "http://api.gov.au/browse"
+    val defaultPageParams: String = "http://api.gov.au/browse?page=1&size=20"
+    val firstPage: String = "http://api.gov.au/browse?page=1&size=3"
+    val secondPage: String = "http://api.gov.au/browse?page=2&size=3"
+    val thirdPage: String = "http://api.gov.au/browse?page=3&size=3"
+    val lastPage: String = "http://api.gov.au/browse?page=4&size=3"
 
     @Test
     fun PageResults_know_theyre_the_first_page() {

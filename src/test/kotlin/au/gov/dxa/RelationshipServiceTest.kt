@@ -17,7 +17,7 @@ class RelationshipServiceTest {
 
 
     private var relationships = mutableMapOf(
-        "http://dxa.gov.au/definition/other/de17" to mutableListOf(
+        "http://api.gov.au/definition/other/de17" to mutableListOf(
                 Result(meta["rdfs:seeAlso"]!!, Direction.UNDIRECTED,"Something1","something"),
                 Result(meta["rdfs:seeAlso"]!!, Direction.FROM,"Something2","something"),
                 Result(meta["rdfs:seeAlso"]!!, Direction.FROM,"Something3","something"),
@@ -30,7 +30,7 @@ class RelationshipServiceTest {
 
     @Test
     fun test_can_get_relationships() {
-        val input = "http://dxa.gov.au/definition/other/de17"
+        val input = "http://api.gov.au/definition/other/de17"
         val result = service.getRelationshipFor(input)
         Assert.assertEquals(2, result.size)
         Assert.assertTrue(result.containsKey("rdfs:seeAlso"))

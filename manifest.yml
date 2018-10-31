@@ -6,3 +6,5 @@ applications:
   env:
     SPRING_PROFILES_ACTIVE: prod
   path: build/libs/definitions-catalogue-1.0.jar
+  routes:
+  - route: api-gov-au.apps.y.cld.gov.au/definitions

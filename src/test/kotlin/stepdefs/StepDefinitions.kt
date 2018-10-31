@@ -14,6 +14,7 @@ var lastInstance : StepDefinitions? = null
 @Configuration
 class StepDefinitions : En {
 
+	private val context = "definitions/"
     private val host = "http://localhost:5000/"
     private var lastDoc : Document? = null
     private var lastURL: String? = null
@@ -28,6 +29,7 @@ class StepDefinitions : En {
         lastDoc = Jsoup.connect(url).get()
     }
 
+
     init {
         Before { scenario: Scenario ->
             assertNotSame(this, lastInstance)
@@ -35,11 +37,15 @@ class StepDefinitions : En {
         }
 
         Given("^I am on the main page$") {
-            getPage(host)
+            getPage(host + context)
         }
 
         Given("^I am on page \"([^\"]*)\"$") { uri: String ->
-            getPage(host + uri)
+				if(!uri.contains(context)){
+                	getPage(host + context + uri)
+            	}else{
+					getPage(host + uri)
+				}
         }
 
 
@@ -49,8 +55,12 @@ class StepDefinitions : En {
             if(href.startsWith("http")){
                 getPage(href)
             }else {
-                getPage(host + href)
-            }
+				if(!href.contains(context)){
+                	getPage(host + context + href)
+            	}else{
+					getPage(host + href)
+				}
+			}
         }
 
         Then("^I will be on the page \"([^\"]*)\" and see \"([^\"]*)\" in a \"([^\"]*)\"$") { url: String, title: String, element: String ->

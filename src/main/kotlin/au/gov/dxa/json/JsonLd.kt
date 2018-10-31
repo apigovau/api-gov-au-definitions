@@ -32,13 +32,13 @@ class JsonLd(path:String) {
 
     private fun getRelationships(data: JsonObject): MutableList<RelationDTO>{
         val id = data["@id"] as String? ?:""
-        val identifier = "http://dxa.gov.au/definition/" + id.split("/").takeLast(2).joinToString("/")
+        val identifier = "http://api.gov.au/definition/" + id.split("/").takeLast(2).joinToString("/")
         val list = mutableListOf<RelationDTO>()
 
         for(relationType in listOf("http://www.w3.org/2004/02/skos/core#related","http://www.w3.org/2004/02/skos/core#broader","http://www.w3.org/2004/02/skos/core#narrower")){
             val relation = id(data[relationType])
             if(relation == "") continue
-            val to = "http://dxa.gov.au/definition/" + relation.split("/").takeLast(2).joinToString("/")
+            val to = "http://api.gov.au/definition/" + relation.split("/").takeLast(2).joinToString("/")
 
             list.add (RelationDTO(identifier, "rdfs:seeAlso",to,Direction.TO))
         }
@@ -52,7 +52,7 @@ class JsonLd(path:String) {
         val definition = value(data[SKOS_DEFINITION])
         var name = value(data[SKOS_PREFLABEL])
         if(name == "") name = getNameFromId(id)
-        val identifier = "http://dxa.gov.au/definition/" + id.split("/").takeLast(2).joinToString("/")
+        val identifier = "http://api.gov.au/definition/" + id.split("/").takeLast(2).joinToString("/")
         return Definition(name, domain.name,"",definition,"",identifier, arrayOf(),"",arrayOf(),mapOf(),domain.acronym, id)
     }
 
