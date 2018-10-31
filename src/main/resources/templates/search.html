@@ -8,7 +8,7 @@
 </head>
 <body class="au-body au-grid">
 
-<div th:replace="fragments/layout :: header(landing=true, current='about')"/>
+<div th:replace="fragments/layout :: header(landing=(${showResults} == null), current='about')"/>
 
 
 <main class="container">
