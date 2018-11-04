@@ -204,7 +204,7 @@ class Controller {
         model["identifier"] = definition.identifier
         model["href"] = definition.identifier.replace("http://api.gov.au","")
         model["usage"] = definition.usage
-        model["api"] = definition.identifier.replace("http://api.gov.au","http://api.gov.au/api")
+        model["api"] = definition.identifier.replace("http://api.gov.au/definitions/","http://api.gov.au/definitions/api/")
         if(definition.type != "") model["type"] = definition.type
         if(definition.sourceURL != "") model["source"] = definition.sourceURL
         model["typeValues"] = definition.values
@@ -212,7 +212,8 @@ class Controller {
 
         val relations = relationshipService.getRelations(definition.identifier)
         if(relations.isNotEmpty()){
-            model["relationShipImageUrl"] = URLHelper().convertURL(request,model["api"].toString())
+            model["relationShipImageUrl"] = model["api"].toString()
+            //model["relationShipImageUrl"] = URLHelper().convertURL(request,model["api"].toString())
             val relationsWithDefinitions = addDefinitionToRelationshipResults(relations)
             model["relationships"] = relationsWithDefinitions
         }
