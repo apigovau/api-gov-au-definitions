@@ -45,7 +45,7 @@
         }
       }
     },
-    "/api/definitions" : {
+    "/api/browse" : {
       "get" : {
         "tags" : [ "definitions" ],
 	"operationId" : "browseDefinitions",
