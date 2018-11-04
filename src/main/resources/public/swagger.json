@@ -12,8 +12,8 @@
       "url" : "https://opensource.org/licenses/MIT"
     }
   },
-  "host" : "definitions.ausdx.io",
-  "basePath" : "/",
+  "host" : "api.gov.au",
+  "basePath" : "/definitions/",
   "schemes" : [ "https" ],
   "paths" : {
     "/api/definition/{domain}/{id}" : {
