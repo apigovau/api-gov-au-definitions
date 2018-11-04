@@ -7,7 +7,7 @@ applications:
     SPRING_PROFILES_ACTIVE: prod
   path: build/libs/definitions-catalogue-1.0.jar
   routes:
-  - route: api-gov-au.apps.y.cld.gov.au/definitions
+  - route: api.gov.au/definitions
 - name: api-gov-au-definitions-catalogue-green
   memory: 1G
   buildpack: java_buildpack
@@ -15,4 +15,4 @@ applications:
     SPRING_PROFILES_ACTIVE: prod
   path: build/libs/definitions-catalogue-1.0.jar
   routes:
-  - route: api-gov-au.apps.y.cld.gov.au/definitions
+  - route: api.gov.au/definitions
