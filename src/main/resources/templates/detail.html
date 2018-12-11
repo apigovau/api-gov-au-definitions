@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xlink="http://www.w3.org/1999/xlink">
 <head>
   <div th:replace="fragments/layout :: meta" />
   <title>Definitions Catalogue</title>
   <div th:replace="fragments/layout :: favicon"/>
   <div th:replace="fragments/layout :: css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js"></script>
+<script>svg4everybody();</script>
+<style>
+    svg {
+        width:2000px;
+        height:1400px;
+        max-width:100vw;
+        max-height:100vh;
+    }
+</style>
 </head>
 <body class="au-body au-grid">
 
@@ -82,7 +92,7 @@
             </dl>
             <!--[if !IE]><!-->
             <svg viewBox="0 0 2000 1400" width="100%">
-                <use th:attr="href='/definitions/api/imgRedirect.svg?url=https://api.gov.au/graph/relations.svg?url=' + 'https://api.gov.au/definitions/api' + ${href}  + '#graph00'"></use>
+                <use th:attr="'xlink:href'='/definitions/api/imgRedirect.svg?url=https://api.gov.au/graph/relations.svg?url=' + 'https://api.gov.au/definitions/api' + ${href}  + '#graph00'"></use>
             </svg>
             <!--<![endif]-->
             <!--[if IE]><img th:attr="src='https://api.gov.au/graph/relations.png?url=' + ${relationShipImageUrl}"><![endif]-->
