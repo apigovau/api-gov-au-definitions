@@ -27,7 +27,7 @@ SPRING_DATASOURCE_URL="jdbc:postgresql://localhost:5433/postgres?user=postgres&p
     java -Xmx200m -Xss512k -jar build/libs/definitions-catalogue-1.0.jar
 ```
 
-Your app should now be running on [localhost:5000/definitions/](http://localhost:5000/definitions/).
+Your app should now be running on [localhost:5002/definitions/](http://localhost:5002/definitions/).
 
 ## Deploying to CloudFoundry
 
