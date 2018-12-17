@@ -23,9 +23,15 @@ jar {
 }
 
 test {
+    exclude '**/RunCukesTest.class'
     beforeTest { descriptor ->
         logger.lifecycle("Running test: ${descriptor}")
     }
+}
+
+task featureTest(type:Test){
+    exclude '**/au/**'
+    //include '**/RunCukesTest.class'
 }
 
 repositories {
