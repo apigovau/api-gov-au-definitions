@@ -12,7 +12,7 @@ For a basic introduction to Kotlin, Spring Boot and Heroku, read the [Getting St
 
 ```bash
 # Get the source
-git clone https://github.com/govau/api-gov-au-definitions.git
+git clone https://github.com/apigovau/api-gov-au-definitions.git
 cd api-gov-au-definitions/
 
 # Build it
