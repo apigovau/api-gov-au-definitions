@@ -15,7 +15,7 @@ var lastInstance : StepDefinitions? = null
 class StepDefinitions : En {
 
 	private val context = "definitions/"
-    private val host = "http://localhost:5000/"
+    private val host = "http://localhost:5002/"
     private var lastDoc : Document? = null
     private var lastURL: String? = null
 

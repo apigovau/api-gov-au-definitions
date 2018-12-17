@@ -9,9 +9,9 @@ class URLHelperTest {
 
     @Test
     fun Test_can_switch_servers() {
-        val to = "http://localhost:5000/definition/other/de18"
+        val to = "http://localhost:5002/definition/other/de18"
         val from = "http://api.gov.au/definition/other/de17"
-        val expected = "http://localhost:5000/definition/other/de17"
+        val expected = "http://localhost:5002/definition/other/de17"
         val results = URLHelper()._convertURL(to, from)
         Assert.assertEquals(expected, results)
     }
