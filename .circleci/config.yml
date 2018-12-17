@@ -42,9 +42,9 @@ jobs:
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
-        - name: Run the application
-        - background: true
-        - command: gradle run
+          name: Run the application
+          background: true
+          command: gradle run
       - run:
           name: Wait for web service
           command: dockerize -wait http://localhost:5002/definitions -timeout 1m
