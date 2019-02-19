@@ -103,7 +103,7 @@ class DefinitionRepository {
     }
 
     private fun addJsonDefinitions() {
-        for (domain in listOf("trc", "fs", "ss", "fi", "ce", "edu","dimensions")) {
+        for (domain in listOf("trc", "fs", "ss", "fi", "ce", "edu","dimensions","NewStart")) {
             val domainJson: JsonObject = JsonHelper.parse("/definitions/json/$domain.json") as JsonObject
 
             val name = domainJson.string("domain")

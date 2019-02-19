@@ -13,7 +13,7 @@ Feature: Search with synonyms
     When I search for "car"
     Then I will see "synonyms" in a "a"
     Then I will see "motor vehicle" in a "span"
-    Then I will see "Expense Operating Motor Vehicle Type Or Claim Method Code" in a "a"
+    Then I will see "Luxury Car Tax Claimable Credits Amount" in a "a"
 
   Scenario: Searching for address doesn't include any synonyms
     When I search for "address"
