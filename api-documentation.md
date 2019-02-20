@@ -450,7 +450,7 @@ The fields will vary based on the syntax, but we believe they will always be key
 
 The set of current domains is available here:
 
->http://definitions.ausdx.io/api/domains
+>https://api.gov.au/definitions/api/domains
 
 It returns something like this:
 
