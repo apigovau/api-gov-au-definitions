@@ -49,6 +49,10 @@ This API is 100% public.
 
 There is no Authentication.
 
+# Collaborate
+
+This is a placeholder page that will be populated with the collaboration features of api.gov.au
+
 # Using the API
 
 ## HATEOS
