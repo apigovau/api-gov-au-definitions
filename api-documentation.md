@@ -239,7 +239,7 @@ And and example speficying a domain:
 http://api.gov.au/definitions/api/search?query=motor+vehicle&domain=fs
 ```
 
-And an example with paging
+And an example with paging:
 
 ```json
 http://api.gov.au/definitions/api/search?query=motor+vehicle&domain=fs&page=1&size=20
