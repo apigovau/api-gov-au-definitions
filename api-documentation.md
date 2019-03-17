@@ -86,7 +86,7 @@ This API pages results.
 
 The `page` query parameter selects which result page to return.
 
-The `size` query parameter specifies how many results per page to return. The default is 20 and the maximum is 100
+The `size` query parameter specifies how many results per page to return. The default is 20 and the maximum is 100.
 
 A page of results give you helpful information about navigating the other result pages.
 
