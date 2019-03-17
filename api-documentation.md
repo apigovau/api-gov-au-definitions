@@ -479,4 +479,4 @@ It returns something like this:
 ```
 
 
-This API uses the `acronym` field when passing domains as parameteres.
+This API uses the `acronym` field when passing domains as parameteres..
