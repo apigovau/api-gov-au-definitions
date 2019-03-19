@@ -15,7 +15,7 @@ tags:
 # Getting Started
 
 The Definitions Catalogue REST API allows you to search and browse for data definitions used by the Australian Government.
-Some change
+
 ## Key Information
 
 ### Base URL
