@@ -5,6 +5,7 @@ jobs:
       only:
         - master
         - staging
+        - prod
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -52,15 +53,17 @@ jobs:
       # run tests!
       - run: gradle featureTest
 
-      # Set up CF
+      # get the build scripts
       - run:
-          name: Setup CF CLI
+          name: Download the build scripts
           command: |
-            curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
-            sudo dpkg -i cf-cli_amd64.deb
-            cf -v
+            curl -v -L -o "buildrc" 'https://raw.githubusercontent.com/apigovau/build/master/buildrc'
+            curl -v -L -o "deploy.sh" 'https://raw.githubusercontent.com/apigovau/build/master/deploy.sh'
       - run:
           name: Deploying to cloud.gov.au
-          command: bash ./scripts/deploy.sh
+          command: bash ./deploy.sh
+          environment:
+            APPNAME: api-gov-au-definitions-catalogue
+
 
 
