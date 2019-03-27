@@ -35,7 +35,6 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       - run: gradle clean build jar
-      - run: java -jar definitions-catalogue-1.0.jar &
 
       - run:
           name: install dockerize
