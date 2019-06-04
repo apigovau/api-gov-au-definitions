@@ -3,7 +3,7 @@ package au.gov.dxa.definition
 import com.fasterxml.jackson.annotation.JsonIgnore
 
 
-class DefinitionHATEOS(definition: Definition){
+class DefinitionHATEOS(definition: au.gov.dxa.definition.Definition){
 
     var content = definition
 

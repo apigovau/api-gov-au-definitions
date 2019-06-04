@@ -1,6 +1,6 @@
 buildscript {
-    ext.kotlin_version = '1.2.31'
-    ext.spring_boot_version = '1.5.3.RELEASE'
+    ext.kotlin_version = '1.2.41'
+    ext.spring_boot_version = '1.5.8.RELEASE'
     repositories {
         jcenter()
     }
@@ -9,6 +9,13 @@ buildscript {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
     }
 }
+
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+
 
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -47,7 +54,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf') {
         exclude group: 'nz.net.ultraq.thymeleaf', module: 'thymeleaf-layout-dialect'
     }
-    compile 'com.beust:klaxon:0.30'
+    compile 'com.beust:klaxon:3.0.1'
     compile "junit:junit"
     compile 'org.apache.httpcomponents:httpclient:4.5'
 
@@ -60,10 +67,15 @@ dependencies {
     compile 'org.postgresql:postgresql:9.4.1212'
     compile 'com.zaxxer:HikariCP:2.6.0'
 
+
     testCompile "junit:junit"
     testCompile 'io.cucumber:cucumber-java8:2.3.1'
     testCompile 'io.cucumber:cucumber-junit:2.3.1'
     testCompile 'org.apache.httpcomponents:fluent-hc:4.5.5'
     testCompile 'org.jsoup:jsoup:1.11.2'
+
+
+
+    compile 'com.github.apigovau:config:v1.0'
 
 }

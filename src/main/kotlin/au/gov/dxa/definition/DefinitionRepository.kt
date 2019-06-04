@@ -1,13 +1,10 @@
 package au.gov.dxa.definition
 
 import au.gov.dxa.json.JsonHelper
-import au.gov.dxa.json.JsonLd
 import au.gov.dxa.search.LuceneQueryParser
 import au.gov.dxa.synonym.SynonymService
 import com.beust.klaxon.JsonObject
-import com.beust.klaxon.array
-import com.beust.klaxon.obj
-import com.beust.klaxon.string
+
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.Document
@@ -93,13 +90,13 @@ class DefinitionRepository {
     }
 
     private fun addJsonLDDefinitions(){
-        for(jsonld in listOf<String>()){//"agift"
+        /*for(jsonld in listOf<String>()){//"agift"
             val json = JsonLd("/definitions/jsonld/$jsonld.json")
             val domain = json.domain
             domains[domain.acronym] = domain
             json.definitions.map{ addDefinitionToIndexes(it, domain.acronym) }
             indexWriter.commit()
-        }
+        }*/
     }
 
     private fun addJsonDefinitions() {

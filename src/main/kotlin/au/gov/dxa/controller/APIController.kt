@@ -2,7 +2,6 @@ package au.gov.dxa.controller
 
 import au.gov.dxa.definition.DefinitionHATEOS
 import au.gov.dxa.definition.DefinitionService
-import au.gov.dxa.definition.Domain
 import au.gov.dxa.definition.QueryLogger
 import au.gov.dxa.relationship.RelationshipService
 import au.gov.dxa.relationship.Result
@@ -73,7 +72,7 @@ class APIController {
 
     @CrossOrigin
     @GetMapping("/api/domains")
-    fun domains():List<Domain>{
+    fun domains():List<au.gov.dxa.definition.Domain>{
         return definitionService.getDomains()
     }
 

@@ -3,8 +3,6 @@ package au.gov.dxa.syntax
 import au.gov.dxa.json.JsonHelper
 import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
-import com.beust.klaxon.obj
-import com.beust.klaxon.string
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.stereotype.Component
 import kotlin.collections.Map

@@ -1,19 +1,19 @@
 package au.gov.dxa.dictionary;
 import au.gov.dxa.controller.Filters
-import au.gov.dxa.definition.Definition
-import au.gov.dxa.definition.DefinitionRepository
+//import au.gov.dxa.definition.Definition
+///import au.gov.dxa.definition.DefinitionRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 public class DictionaryService {
 
-    @Autowired
-    private lateinit var repository: DefinitionRepository
+    //@Autowired
+    //private lateinit var repository: DefinitionRepository
 
     fun getDictionaryCorrection(query:String, filters:Filters? = null):String
     {
-        try {
+        /*try {
             if (query.length > 3) {
                 if (filters == null) {
                     return runQuery(query, repository.getAllDefinitions())
@@ -35,10 +35,10 @@ public class DictionaryService {
         catch (e:Exception)
         {
             return ""
-        }
+        }*/return ""
     }
 
-    fun runQuery(query: String, filterdDef:MutableList<Definition>):String
+    /*fun runQuery(query: String, filterdDef:MutableList<Definition>):String
     {
         var results: MutableList<DistanceResult> = mutableListOf()
         filterdDef.forEach { results.add(DistanceResult(it.name, levenshtein(query,it.name))) }
@@ -72,6 +72,6 @@ public class DictionaryService {
         }
 
         return cost[lhsLength - 1]
-    }
+    }*/
 }
 data class DistanceResult(var value:String, var distance:Int)

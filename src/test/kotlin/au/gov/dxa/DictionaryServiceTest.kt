@@ -10,7 +10,7 @@ class DictionaryServiceTest{
 
     val service:DictionaryService = DictionaryService()
 
-    @Test
+   /* @Test
     fun Test_Dict_correction(){
         Assert.assertEquals("Electronic Contact Facsimile Area Code",service.runQuery("ElectroCotacsimiAreaode",getTestDefList()))
         Assert.assertEquals("Address",service.runQuery("Badress",getTestDefList()))
@@ -33,4 +33,5 @@ class DictionaryServiceTest{
 
         return output
     }
+    */
 }

@@ -1,4 +1,4 @@
-package au.gov.dxa.json
+/*package au.gov.dxa.json
 
 import au.gov.dxa.definition.Definition
 import au.gov.dxa.definition.Domain
@@ -78,3 +78,4 @@ class JsonLd(path:String) {
         }
     }
 }
+*/
