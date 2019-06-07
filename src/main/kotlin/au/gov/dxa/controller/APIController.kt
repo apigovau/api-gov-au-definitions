@@ -127,7 +127,7 @@ class APIController {
     @CrossOrigin
     @GetMapping("/api/synonyms")
     fun synonyms():MutableList<List<String>>{
-        return synonymService.origSynonyms
+        return synonymService.getAllSynonyms()
     }
 
     @GetMapping("/api/imgRedirect.svg")

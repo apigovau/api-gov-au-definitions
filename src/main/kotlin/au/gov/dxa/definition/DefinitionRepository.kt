@@ -195,7 +195,7 @@ class DefinitionRepository {
         var usedSynonyms = mapOf<String, List<String>>()
         var queryString = query
         if(!raw && !ignoreSynonym) {
-            val synonymExpansion = synonymService.expand(query.toLowerCase())
+            val synonymExpansion = synonymService.getExpandedSynonyms(query.toLowerCase())
             queryString = LuceneQueryParser.parse(synonymExpansion.expandedQuery, domain)
             usedSynonyms = synonymExpansion.usedSynonyms
         } else if (!raw ){
