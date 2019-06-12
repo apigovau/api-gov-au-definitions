@@ -95,14 +95,15 @@ class DefinitionService {
 
     private fun splitRawJsonToArray(json:String):List<String> {
         var rawJsonArray = json.substring(1,json.length-1).split("},{").toMutableList()
-        rawJsonArray[0] = "${rawJsonArray.first()}}"
-        rawJsonArray[rawJsonArray.count()-1] = "{${rawJsonArray.last()}"
+        if (rawJsonArray.count() >1) {
+            rawJsonArray[0] = "${rawJsonArray.first()}}"
+            rawJsonArray[rawJsonArray.count() - 1] = "{${rawJsonArray.last()}"
+        }
         for (i in 1..rawJsonArray.count()-2) {
             var text = rawJsonArray[i]
             rawJsonArray[i] = "{$text}"
         }
         return  rawJsonArray.toList()
-
     }
 
     fun getDefinition(identifier: String): Definition {
@@ -166,11 +167,15 @@ class DefinitionService {
         var response = get(url)
         var responseObj = Parser().parse(StringBuilder(response.text))
         var searchResults:MutableList<Definition> = mutableListOf()
-        var definitionsJSON = splitRawJsonToArray(((responseObj as Map<String,Any>).getValue("results") as JsonArray<JsonObject>).toJsonString())
-        val om = ObjectMapper()
-        for (jsonItem in definitionsJSON) {
-            searchResults.add(om.readValue(jsonItem, Definition::class.java))
+        var resultsArray = (responseObj as Map<String,Any>).getValue("results") as JsonArray<JsonObject>
+        if (resultsArray.count() > 0) {
+            var definitionsJSON = splitRawJsonToArray(resultsArray.toJsonString())
+            val om = ObjectMapper()
+            for (jsonItem in definitionsJSON) {
+                searchResults.add(om.readValue(jsonItem, Definition::class.java))
+            }
         }
+
 
         return SearchResults<Definition>(searchResults,
                 (responseObj as Map<String,Int>).getValue("howManyResults"),

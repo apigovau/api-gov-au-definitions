@@ -14,13 +14,6 @@ enum class Direction {
 data class Result(var meta:Meta?, val direction: Direction, val to: String, var toName:String = "")
 data class Meta(val type:String, val directed:Boolean, val verbs : Map<Direction, String>)
 
-
-data class Definition(val name: String, val domain: String, val status: String, val definition:  String, val guidance: String, val identifier: String, val usage: Array<String>, val type: String, val values: Array<String>, val facets: Map<String, String>, @JsonIgnore val domainAcronym: String, val sourceURL:String = "")
-data class SearchResults<T>(val results: List<T>, val howManyResults: Int, val usedSynonyms: Map<String,List<String>>? = null)
-class Domain(val name:String, val _acronym: String, val version:String) {
-    var acronym: String = _acronym.toLowerCase()
-}
-
 @Service
 class RelationshipService {
 

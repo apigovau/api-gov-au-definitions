@@ -2,7 +2,6 @@ package au.gov.dxa.controller
 
 import au.gov.dxa.definition.DefinitionHATEOS
 import au.gov.dxa.definition.DefinitionService
-import au.gov.dxa.definition.QueryLogger
 import au.gov.dxa.relationship.RelationshipService
 import au.gov.dxa.relationship.Result
 import au.gov.dxa.synonym.SynonymService
@@ -31,16 +30,13 @@ class APIController {
     private lateinit var relationshipService: RelationshipService
 
     @Autowired
-    private lateinit var queryLogger: QueryLogger
-
-
-    @Autowired
     private val request: HttpServletRequest? = null
 
 
     @ResponseStatus(HttpStatus.FORBIDDEN)
     class UnauthorisedToAccessMonitoring() : RuntimeException()
 
+    /* Legacy
     @CrossOrigin
     @GetMapping("/monitor")
     fun test_db_stats(@RequestParam authKey:String):Map<String, Any>{
@@ -52,7 +48,7 @@ class APIController {
         map["definitionCount"] = definitionService.howManyDefinitions()
 
         return map
-    }
+    }*/
 
 
     @CrossOrigin
