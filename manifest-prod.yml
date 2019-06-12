@@ -6,6 +6,7 @@ applications:
   buildpack: java_buildpack
   env:
     SPRING_PROFILES_ACTIVE: prod
+    config_environment: api.gov.au
   path: build/libs/definitions-catalogue-1.0.jar
   routes:
   - route: api.gov.au/definitions
