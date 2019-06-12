@@ -244,7 +244,7 @@ class Controller {
 
     @RequestMapping("/synonyms")
     internal fun synonyms(model: MutableMap<String, Any> ): String {
-        model["synonyms"] = synonymService.origSynonyms
+        model["synonyms"] = synonymService.getAllSynonyms()
         return "synonyms"
     }
 

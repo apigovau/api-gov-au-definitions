@@ -2,8 +2,6 @@ package au.gov.dxa.controller
 
 import au.gov.dxa.definition.DefinitionHATEOS
 import au.gov.dxa.definition.DefinitionService
-import au.gov.dxa.definition.Domain
-import au.gov.dxa.definition.QueryLogger
 import au.gov.dxa.relationship.RelationshipService
 import au.gov.dxa.relationship.Result
 import au.gov.dxa.synonym.SynonymService
@@ -32,16 +30,13 @@ class APIController {
     private lateinit var relationshipService: RelationshipService
 
     @Autowired
-    private lateinit var queryLogger: QueryLogger
-
-
-    @Autowired
     private val request: HttpServletRequest? = null
 
 
     @ResponseStatus(HttpStatus.FORBIDDEN)
     class UnauthorisedToAccessMonitoring() : RuntimeException()
 
+    /* Legacy
     @CrossOrigin
     @GetMapping("/monitor")
     fun test_db_stats(@RequestParam authKey:String):Map<String, Any>{
@@ -53,7 +48,7 @@ class APIController {
         map["definitionCount"] = definitionService.howManyDefinitions()
 
         return map
-    }
+    }*/
 
 
     @CrossOrigin
@@ -73,8 +68,9 @@ class APIController {
 
     @CrossOrigin
     @GetMapping("/api/domains")
-    fun domains():List<Domain>{
-        return definitionService.getDomains()
+    fun domains():List<au.gov.dxa.definition.Domain>{
+        val output = definitionService.getDomains()
+        return output
     }
 
     @CrossOrigin
@@ -128,7 +124,7 @@ class APIController {
     @CrossOrigin
     @GetMapping("/api/synonyms")
     fun synonyms():MutableList<List<String>>{
-        return synonymService.origSynonyms
+        return synonymService.getAllSynonyms()
     }
 
     @GetMapping("/api/imgRedirect.svg")
