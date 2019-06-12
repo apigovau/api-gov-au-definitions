@@ -1,18 +1,30 @@
 package au.gov.dxa.syntax
 
-import org.springframework.beans.factory.annotation.Autowired
+import au.gov.api.config.Config
+import com.fasterxml.jackson.databind.ObjectMapper
+import khttp.get
 import org.springframework.stereotype.Service
+import java.lang.Exception
 
+class Syntax {
+    var identifier: String = ""
+    var syntaxes: Map<String, Map<String, String>> = mapOf()
+}
 
 @Service
 class SyntaxService {
-
-    @Autowired
-    private lateinit var repository: SyntaxRepository
-
+    val baseRepoUri = Config.get("BaseRepoURI")
 
     fun getSyntax(identifier: String): Syntax?{
-       return repository.findOne(identifier)
-    }
+        var response = get(baseRepoUri+"definitions/syntax?id=$identifier")
 
+        try {
+            return ObjectMapper().readValue(response.text, Syntax::class.java)
+        }
+        catch (e:Exception)
+        {
+            e.printStackTrace()
+            return null
+        }
+    }
 }

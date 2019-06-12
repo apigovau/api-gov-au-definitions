@@ -16,8 +16,6 @@ class SearchDTO {
         this.query = content
     }
 
-
-
     fun getIgnoreSynonym(ignoreRemovedTags : Boolean = true): Boolean {
         var outputstring = ignoreSynonym
         var ignoreSyn = true

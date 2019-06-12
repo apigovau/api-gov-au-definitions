@@ -39,7 +39,7 @@ cf push
 
 This catalogue shows data definitions from the [Standard Business Reporting](http://sbr.gov.au) XBRL taxonomy
 
-You will need to extract the definitions from the XBRL files first, using [this tool](https://github.com/colugo/sbr_taxonomy_usage)
+You will need to extract the definitions from the XBRL files first, using [this tool](https://github.com/sbr/taxonomy_usage)
 
 ## Documentation
 

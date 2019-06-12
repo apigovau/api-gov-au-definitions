@@ -13,7 +13,7 @@ class PageResultsTest {
     val secondPage: String = "http://api.gov.au/browse?page=2&size=3"
     val thirdPage: String = "http://api.gov.au/browse?page=3&size=3"
     val lastPage: String = "http://api.gov.au/browse?page=4&size=3"
-
+    /* //No longer valid due to data being in repository
     @Test
     fun PageResults_know_theyre_the_first_page() {
         var result = PageResult<Int>(mutableListOf(0, 1, 2), firstPage, content.size)
@@ -132,6 +132,6 @@ class PageResultsTest {
         Assert.assertEquals(1, result.pageNumber)
         Assert.assertEquals(20, result.pageSize)
 
-    }
+    } */
 
 }
