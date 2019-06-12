@@ -15,7 +15,7 @@ class SynonymExpansionResults {
 }
 
 @Service
-class SynonymService(private var synonyms : MutableMap<String, List<String>> = mutableMapOf()) {
+class SynonymService() {
 
     val baseRepoUri = Config.get("BaseRepoURI")
 

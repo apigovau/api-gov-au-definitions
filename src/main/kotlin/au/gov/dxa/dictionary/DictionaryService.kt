@@ -1,77 +1,30 @@
 package au.gov.dxa.dictionary;
+import au.gov.api.config.Config
 import au.gov.dxa.controller.Filters
-//import au.gov.dxa.definition.Definition
-///import au.gov.dxa.definition.DefinitionRepository
-import org.springframework.beans.factory.annotation.Autowired
+import khttp.get
 import org.springframework.stereotype.Service
+import java.net.URLEncoder
 
 @Service
 public class DictionaryService {
-
-    //@Autowired
-    //private lateinit var repository: DefinitionRepository
+    val baseRepoUri = Config.get("BaseRepoURI")
 
     fun getDictionaryCorrection(query:String, filters:Filters? = null):String
     {
-        /*try {
-            if (query.length > 3) {
-                if (filters == null) {
-                    return runQuery(query, repository.getAllDefinitions())
-                } else {
-                    if (filters.Domains.count() > 0) {
-                        var filterdList: MutableList<Definition> = mutableListOf()
-                        var domainStrings: MutableList<String> = mutableListOf()
-                        filters.Domains.forEach { domainStrings.add(it.acronym) }
-                        domainStrings.forEach { filterdList.addAll(repository.getAllDefinitionsInDomain(it)) }
-                        return runQuery(query, filterdList)
-                    } else {
-                        return runQuery(query, repository.getAllDefinitions())
-                    }
-                }
-            } else {
-                return ""
-            }
-        }
-        catch (e:Exception)
-        {
-            return ""
-        }*/return ""
+        val url = baseRepoUri + "definitions/dict?query=${URLEncoder.encode(query, "UTF-8")}" + filterPramConstructor(filters)
+        var response = get(url)
+        return response.text
     }
 
-    /*fun runQuery(query: String, filterdDef:MutableList<Definition>):String
-    {
-        var results: MutableList<DistanceResult> = mutableListOf()
-        filterdDef.forEach { results.add(DistanceResult(it.name, levenshtein(query,it.name))) }
-        results.sortBy { it.distance  }
-        return results.first().value
-    }
-
-    private fun levenshtein(lhs : CharSequence, rhs : CharSequence) : Int {
-        val lhsLength = lhs.length
-        val rhsLength = rhs.length
-
-        var cost = Array(lhsLength) { it }
-        var newCost = Array(lhsLength) { 0 }
-
-        for (i in 1..rhsLength-1) {
-            newCost[0] = i
-
-            for (j in 1..lhsLength-1) {
-                val match = if(lhs[j - 1] == rhs[i - 1]) 0 else 1
-
-                val costReplace = cost[j - 1] + match
-                val costInsert = cost[j] + 1
-                val costDelete = newCost[j - 1] + 1
-
-                newCost[j] = Math.min(Math.min(costInsert, costDelete), costReplace)
+    private fun filterPramConstructor(filters: Filters?):String {
+        var output = ""
+        if (filters==null){
+            return output
+        } else {
+            for (domain in filters.Domains) {
+                output += "&domains=${domain.acronym}"
             }
-
-            val swap = cost
-            cost = newCost
-            newCost = swap
+            return output
         }
-
-        return cost[lhsLength - 1]
-    }*/
+    }
 }
-data class DistanceResult(var value:String, var distance:Int)

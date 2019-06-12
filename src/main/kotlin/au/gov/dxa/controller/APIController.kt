@@ -73,7 +73,8 @@ class APIController {
     @CrossOrigin
     @GetMapping("/api/domains")
     fun domains():List<au.gov.dxa.definition.Domain>{
-        return definitionService.getDomains()
+        val output = definitionService.getDomains()
+        return output
     }
 
     @CrossOrigin
