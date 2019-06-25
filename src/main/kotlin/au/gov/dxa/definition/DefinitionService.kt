@@ -176,10 +176,20 @@ class DefinitionService {
             }
         }
 
+        val v = (responseObj as JsonObject).get("usedSynonyms") as Map<String,JsonArray<String>>
+
+        var syns:MutableMap<String,List<String>> = mutableMapOf()
+        for (key in v.keys) {
+            var syn:MutableList<String> = mutableListOf()
+            for (word in v[key] as Collection<String>) {
+                syn.add(word)
+            }
+            syns[key] = syn
+        }
 
         return SearchResults<Definition>(searchResults,
                 (responseObj as Map<String,Int>).getValue("howManyResults"),
-                (responseObj as Map<String,Map<String,List<String>>?>).getValue("usedSynonyms"))
+                syns.toMap())
     }
 
     fun searchHATEOS(query: String, domain:String, page: Int, size: Int, raw:Boolean = false, ignoreSynonym: Boolean = false): SearchResults<DefinitionHATEOS> {

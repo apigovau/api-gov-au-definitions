@@ -60,7 +60,8 @@ class APIController {
     }
 
     @CrossOrigin
-    @GetMapping("/api/browse")
+    @GetMapping("/api/" +
+            "")
     fun browse_definitions(@RequestParam(defaultValue = "20") size: Int,
                            @RequestParam(defaultValue = "0") page: Int): PageResult<DefinitionHATEOS> {
         return PageResult(definitionService.getDefinitionsHATEOS(page, size), URLHelper().getURL(request), definitionService.howManyDefinitions())
