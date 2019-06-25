@@ -34,7 +34,7 @@ class APIController {
 
 
     @ResponseStatus(HttpStatus.FORBIDDEN)
-    class UnauthorisedToAccessMonitoring() : RuntimeException()
+    class UnauthorisedToAccessMonitoring : RuntimeException()
 
     /* Legacy
     @CrossOrigin
@@ -53,14 +53,15 @@ class APIController {
 
     @CrossOrigin
     @GetMapping("/api/definition/{domain}/{id}")
-    fun specific_definition(@PathVariable domain:String, @PathVariable id:String): DefinitionHATEOS {
+    fun specific_definition(@PathVariable domain: String, @PathVariable id: String): DefinitionHATEOS {
         val identifier = "http://api.gov.au/definition/$domain/$id"
-        val definition =  definitionService.getDefinition(identifier)
+        val definition = definitionService.getDefinition(identifier)
         return DefinitionHATEOS(definition)
     }
 
     @CrossOrigin
-    @GetMapping("/api/browse")
+    @GetMapping("/api/" +
+            "")
     fun browse_definitions(@RequestParam(defaultValue = "20") size: Int,
                            @RequestParam(defaultValue = "0") page: Int): PageResult<DefinitionHATEOS> {
         return PageResult(definitionService.getDefinitionsHATEOS(page, size), URLHelper().getURL(request), definitionService.howManyDefinitions())
@@ -68,7 +69,7 @@ class APIController {
 
     @CrossOrigin
     @GetMapping("/api/domains")
-    fun domains():List<au.gov.dxa.definition.Domain>{
+    fun domains(): List<au.gov.dxa.definition.Domain> {
         val output = definitionService.getDomains()
         return output
     }
@@ -88,7 +89,7 @@ class APIController {
 
     @CrossOrigin
     @GetMapping("/api/syntax/{domain}/{id}")
-    fun specific_definition_syntax(@PathVariable domain:String, @PathVariable id:String): Syntax? {
+    fun specific_definition_syntax(@PathVariable domain: String, @PathVariable id: String): Syntax? {
         val identifier = "http://api.gov.au/definition/$domain/$id"
         return syntaxService.getSyntax(identifier)
     }
@@ -96,11 +97,11 @@ class APIController {
 
     @CrossOrigin
     @GetMapping("/api/relations/{domain}/{id}")
-    fun relations(@PathVariable domain:String, @PathVariable id:String): Map<String,List<Result>> {
+    fun relations(@PathVariable domain: String, @PathVariable id: String): Map<String, List<Result>> {
         val identifier = "http://api.gov.au/definition/$domain/$id"
-        val relations =  relationshipService.getRelations(identifier)
-        for(relation in relations.keys){
-            for(result in relations[relation]!!) {
+        val relations = relationshipService.getRelations(identifier)
+        for (relation in relations.keys) {
+            for (result in relations[relation]!!) {
                 val definition = definitionService.getDefinition(result.to)
                 result.toName = definition.name
             }
@@ -123,13 +124,13 @@ class APIController {
 
     @CrossOrigin
     @GetMapping("/api/synonyms")
-    fun synonyms():MutableList<List<String>>{
+    fun synonyms(): MutableList<List<String>> {
         return synonymService.getAllSynonyms()
     }
 
     @GetMapping("/api/imgRedirect.svg")
-    fun imgRedirect(@RequestParam url:String):String{
-        if(url.contains("localhost")) return """<svg id="graph00" xmlns="http://www.w3.org/2000/svg" width="200" height="50" version="1.1"><text x="5" y="20">No images in dev.</text></svg>"""
+    fun imgRedirect(@RequestParam url: String): String {
+        if (url.contains("localhost")) return """<svg id="graph00" xmlns="http://www.w3.org/2000/svg" width="200" height="50" version="1.1"><text x="5" y="20">No images in dev.</text></svg>"""
         return URL(url).readText()
     }
 

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest
 class URLHelper {
 
     fun getURL(request: HttpServletRequest?): String {
-        if(request == null){
+        if (request == null) {
             return ""
         }
 
@@ -36,7 +36,7 @@ class URLHelper {
         return url.toString()
     }
 
-    fun convertURL(request: HttpServletRequest?, from: String): String{
+    fun convertURL(request: HttpServletRequest?, from: String): String {
         val requestAsURL = getURL(request)
         return _convertURL(requestAsURL, from)
     }
@@ -44,7 +44,7 @@ class URLHelper {
     /*
     Only works for urls with schemes: http://...
      */
-    fun _convertURL(to:String, from:String): String{
+    fun _convertURL(to: String, from: String): String {
         val toScheme = to.split("//")[0] + "//"
         val toServer = toScheme + to.removePrefix(toScheme).split("/")[0] + "/"
 
