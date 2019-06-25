@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import javax.servlet.http.HttpServletRequest
-import java.net.URL
 
 
 @Controller
@@ -47,28 +46,24 @@ class Controller {
                      @RequestParam(defaultValue = "false") raw: Boolean): String {
         val searchString = search.getQuery() ?: ""
         val filter = getFilterModel(search)
-        model["search"] =  SearchDTO()
+        model["search"] = SearchDTO()
         model["domains"] = definitionService.getDomains()
         model["filter"] = filter
-        if(searchString != "") {
+        if (searchString != "") {
             model["showResults"] = "true"
             model["queryString"] = searchString
-            val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, raw, search.getIgnoreSynonym(false))
+            val results = definitionService.search(searchString, search.getDomainSearchQuery(), page, size, raw, search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
-            populateResultsPage(pageResult, model, searchString,filter)
-            if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
+            populateResultsPage(pageResult, model, searchString, filter)
+            if (results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
         }
 
         return "search"
     }
 
 
-
-
-
-
     @RequestMapping("/help")
-    fun help():String = "help"
+    fun help(): String = "help"
 
     @RequestMapping("/browse")
     internal fun definitions(@ModelAttribute search: SearchDTO,
@@ -79,17 +74,17 @@ class Controller {
         val filter = getFilterModel(search)
         model["search"] = SearchDTO()
         model["filter"] = filter
-        if(searchString != "") {
-            model["action"] =  "/browse"
+        if (searchString != "") {
+            model["action"] = "/browse"
             model["showResults"] = "true"
             model["queryString"] = searchString
-            val results = definitionService.search(searchString, search.getDomainSearchQuery(),page, size, false, search.getIgnoreSynonym(false))
+            val results = definitionService.search(searchString, search.getDomainSearchQuery(), page, size, false, search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
             populateResultsPage(pageResult, model, searchString, filter)
-            if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
-        }else {
+            if (results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
+        } else {
             val pageResult = PageResult(definitionService.getDefinitions(page, size), URLHelper().getURL(request), definitionService.howManyDefinitions())
-            populateResultsPage(pageResult, model,filter=filter)
+            populateResultsPage(pageResult, model, filter = filter)
         }
         return "browse"
     }
@@ -101,34 +96,34 @@ class Controller {
             model: MutableMap<String, Any>,
             @RequestParam(defaultValue = "20") size: Int,
             @RequestParam(defaultValue = "0") page: Int,
-            @PathVariable domain:String): String {
+            @PathVariable domain: String): String {
         val searchString = search.getQuery() ?: ""
         val domainName = definitionService.getDomainByAcronym(domain)?.name ?: "No domain called '$domain' "
         val filter = getFilterModel(search)
-        if(domainName != "") model["domainName"] = domainName
+        if (domainName != "") model["domainName"] = domainName
         model["search"] = SearchDTO()
         model["filter"] = filter
-        if(searchString != "") {
+        if (searchString != "") {
             model["action"] = "/browse/$domain"
-            model["showResults"] =  "true"
+            model["showResults"] = "true"
             model["queryString"] = searchString
-            val results = definitionService.search(searchString, domain,page, size,false,search.getIgnoreSynonym(false))
+            val results = definitionService.search(searchString, domain, page, size, false, search.getIgnoreSynonym(false))
             val pageResult = PageResult(results.results, URLHelper().getURL(request), results.howManyResults)
             populateResultsPage(pageResult, model, searchString, filter)
-            if(results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
-        }else {
+            if (results.usedSynonyms != null) model["usedSynonyms"] = results.usedSynonyms
+        } else {
             val pageResult = PageResult(definitionService.getDefinitionsForDomain(page, size, domain), URLHelper().getURL(request), definitionService.howManyDefinitionsInDomain(domain))
-            populateResultsPage(pageResult, model, filter=filter)
+            populateResultsPage(pageResult, model, filter = filter)
         }
         return "browse"
     }
 
-    private fun populateResultsPage(pageResult: PageResult<Definition>, model: MutableMap<String, Any>, queryString : String = "", filter: Filters? = null ) {
+    private fun populateResultsPage(pageResult: PageResult<Definition>, model: MutableMap<String, Any>, queryString: String = "", filter: Filters? = null) {
         val definitions = pageResult.content
-        if (!pageResult.isFirstPage()) model["prevPage"] =  pageResult.thePrevPage(false)
+        if (!pageResult.isFirstPage()) model["prevPage"] = pageResult.thePrevPage(false)
         if (!pageResult.isLastPage()) model["nextPage"] = pageResult.theNextPage(false)
         model["pageNumber"] = pageResult.pageNumber
-        model["pageURL"] =  pageResult.uri
+        model["pageURL"] = pageResult.uri
         model["lastPageNumber"] = pageResult.getTotalPages()
         model["totalResults"] = pageResult.numberOfElements
         model["spellCheck"] = if (pageResult.numberOfElements == 0) dictionaryService.getDictionaryCorrection(queryString, filter) else ""
@@ -158,7 +153,7 @@ class Controller {
 
         val maxLength = 200
 
-        data class ViewDefinition(val name: String, val domain: String, val definition: String, val identifier: String, val status: String, val type:String)
+        data class ViewDefinition(val name: String, val domain: String, val definition: String, val identifier: String, val status: String, val type: String)
 
         val viewDefns = mutableListOf<ViewDefinition>()
         for (definition in definitions) {
@@ -173,17 +168,21 @@ class Controller {
         model["definitions"] = viewDefns
     }
 
-    private fun getFilterModel(search: SearchDTO):Filters {
+    private fun getFilterModel(search: SearchDTO): Filters {
         var ignoreSyn = search.getIgnoreSynonym(false)
-        val filterDom = search.getDomainList(false) ?: listOf()
+        val filterDom = search.getDomainList(false)
         val domains = definitionService.getDomains()
-        val l : MutableList<au.gov.dxa.definition.Domain> = arrayListOf()
-        domains.forEach{if (filterDom.contains(it.acronym)){ l.add(it) }}
-        return Filters(l,ignoreSyn)
+        val l: MutableList<au.gov.dxa.definition.Domain> = arrayListOf()
+        domains.forEach {
+            if (filterDom.contains(it.acronym)) {
+                l.add(it)
+            }
+        }
+        return Filters(l, ignoreSyn)
     }
 
     @RequestMapping("/definition/{domain}/{id}")
-    internal fun detail(model: MutableMap<String, Any>, @PathVariable domain:String, @PathVariable id:String) : String{
+    internal fun detail(model: MutableMap<String, Any>, @PathVariable domain: String, @PathVariable id: String): String {
 
         val identifier = """http://api.gov.au/definition/$domain/$id"""
         val definition = definitionService.getDefinition(identifier)
@@ -192,26 +191,26 @@ class Controller {
         model["domain"] = definition.domain
         model["status"] = definition.status
         model["definition"] = definition.definition
-                .replace("\n","<br/>")
-                .replace("\t","&nbsp;&nbsp;&nbsp;&nbsp;")
+                .replace("\n", "<br/>")
+                .replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
                 .replace("  ", "&nbsp;&nbsp;")
 
         model["guidance"] = definition.guidance
-                .replace("\n","<br/>")
-                .replace("\t","&nbsp;&nbsp;&nbsp;&nbsp;")
+                .replace("\n", "<br/>")
+                .replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
                 .replace("  ", "&nbsp;&nbsp;")
 
         model["identifier"] = definition.identifier
-        model["href"] = definition.identifier.replace("http://api.gov.au","")
+        model["href"] = definition.identifier.replace("http://api.gov.au", "")
         model["usage"] = definition.usage
-        model["api"] = definition.identifier.replace("http://api.gov.au/definitions/","http://api.gov.au/definitions/api/")
-        if(definition.type != "") model["type"] = definition.type
-        if(definition.sourceURL != "") model["source"] = definition.sourceURL
+        model["api"] = definition.identifier.replace("http://api.gov.au/definitions/", "http://api.gov.au/definitions/api/")
+        if (definition.type != "") model["type"] = definition.type
+        if (definition.sourceURL != "") model["source"] = definition.sourceURL
         model["typeValues"] = definition.values
         model["typeFacets"] = definition.facets
 
         val relations = relationshipService.getRelations(definition.identifier)
-        if(relations.isNotEmpty()){
+        if (relations.isNotEmpty()) {
             model["relationShipImageUrl"] = model["api"].toString()
             //model["relationShipImageUrl"] = URLHelper().convertURL(request,model["api"].toString())
             val relationsWithDefinitions = addDefinitionToRelationshipResults(relations)
@@ -219,7 +218,7 @@ class Controller {
         }
 
         val syntaxes = syntaxService.getSyntax(identifier)
-        if(syntaxes != null){
+        if (syntaxes != null) {
             model["syntaxes"] = syntaxes.syntaxes
         }
 
@@ -233,7 +232,7 @@ class Controller {
             for (result in relations[relationName]!!) {
                 val definition = definitionService.getDefinition(result.to)
                 var newURL = URLHelper().convertURL(request, result.to)
-                newURL = "/definition" + Regex(".*definition").replace(newURL,"")
+                newURL = "/definition" + Regex(".*definition").replace(newURL, "")
                 val newResult = Result(result.meta, result.direction, newURL, definition.name)
                 definitions.add(ResultWithDefinition(newResult, definition))
             }
@@ -243,7 +242,7 @@ class Controller {
     }
 
     @RequestMapping("/synonyms")
-    internal fun synonyms(model: MutableMap<String, Any> ): String {
+    internal fun synonyms(model: MutableMap<String, Any>): String {
         model["synonyms"] = synonymService.getAllSynonyms()
         return "synonyms"
     }
@@ -251,6 +250,5 @@ class Controller {
     data class ResultWithDefinition(var result: Result, val definition: Definition)
 
 }
-class Filters(val Domains:MutableList<au.gov.dxa.definition.Domain>, val IgnoreSynonym: Boolean){
 
-}
+class Filters(val Domains: MutableList<au.gov.dxa.definition.Domain>, val IgnoreSynonym: Boolean)
