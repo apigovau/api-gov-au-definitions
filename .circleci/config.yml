@@ -36,19 +36,6 @@ jobs:
 
       - run: gradle clean build jar
 
-      - run:
-          name: install dockerize
-          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
-      - run:
-          name: Run the application
-          background: true
-          command: gradle run
-      - run:
-          name: Wait for web service
-          command: dockerize -wait http://localhost:5002/definitions -timeout 1m
-      
       # run tests!
       - run: gradle featureTest
 
