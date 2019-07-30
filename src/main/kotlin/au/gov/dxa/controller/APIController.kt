@@ -143,11 +143,10 @@ class APIController {
         return URL(url).readText()
     }
 
-    @PostMapping("/api/definition/{domain}/{id}")
-    fun postDefinition(request: HttpServletRequest, @RequestParam id: String, @RequestBody definition: Any, @RequestParam(required = false, defaultValue = "true") domainExists: Boolean) : String
+    @PostMapping("/api/definition/{domain}/new")
+    fun postDefinition(request: HttpServletRequest, @PathVariable domain: String, @RequestBody definition: Any) : String
     {
-        val domainExist = if (domainExists) "true" else "false"
-        var url = Config.get("BaseRepoURI") + "definitions/definition?id=$id&domainExists=$domainExist"
+        var url = Config.get("BaseRepoURI") + "definitions/definition?id=$domain&domainExists=true"
         var x = redirectToUrl(request,url,definition)
         return x.text
     }
