@@ -47,7 +47,7 @@ We try to keep it up to date, but the documentation you're reading is you're bes
 
 This API is 100% public.
 
-There is no Authentication.
+There is no Authentication for read only requests.
 
 # Collaborate
 
@@ -454,7 +454,7 @@ The fields will vary based on the syntax, but we believe they will always be key
 
 The set of current domains is available here:
 
->http://definitions.ausdx.io/api/domains
+>https://api.gov.au/definitions/api/domains
 
 It returns something like this:
 
@@ -480,3 +480,40 @@ It returns something like this:
 
 
 This API uses the `acronym` field when passing domains as parameteres.
+
+# Posting
+
+## Adding and Updating Definitions
+
+All additions and updates to definitions can be done via this endpoint:
+
+> https://api.gov.au/definitions/api/definition/{domain}/{id}
+
+Replace the ```{domain}``` and ```{id}``` with the domain and id of the definition you wish to update. For new definitions the ```{id}``` should be set to "new".
+
+Make a ```POST``` request with your api key and details about the new definition. The post body needs to be valid JSON, example post request body:
+
+```json
+{
+   "name":"Welfare Lodgment Document Checklist Item Document Provided Indicator",
+   "usage":[
+      "Centerlink"
+   ],
+   "domain":"Welfare",
+   "status":"published",
+   "datatype":{
+      "type":"boolean",
+      "facets":{
+
+      }
+   },
+   "guidance":"",
+   "definition":"Indicates that the document specified has been included in the lodgment.",
+   "identifier":" ",
+   "domainAcronym":"wf"
+}
+```
+
+Note that the "identifier" attribute should be left blank when creating a new definition.
+
+If your request is successful the identifier of the definition will be sent back.
