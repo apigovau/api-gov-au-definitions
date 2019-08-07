@@ -1,7 +1,7 @@
 ---
 applications:
 - name: api-gov-au-definitions-catalogue
-  instances: 2
+  instances: 1
   memory: 1G
   buildpack: java_buildpack
   env:
