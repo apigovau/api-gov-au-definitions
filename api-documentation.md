@@ -13,8 +13,8 @@ tags:
  
  # MergeMapping
  # "# Getting Started" add "# Overview"
- # "# Domains" insertAfter "# Definitions"
- # "# Domains" insertAfter "# Paths"
+ # "# Posting" insertAfter "# Definitions"
+ # "# Posting" insertAfter "# Paths"
 ---
 
 # Getting Started
