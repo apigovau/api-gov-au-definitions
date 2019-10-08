@@ -1,3 +1,6 @@
+> This repository has merged into api-gov-au
+
+
 # Data definitions catalogue
 
 Making it easy to discover what data is collected, held or used by government, no matter who defines it, how it is defined, or where it is defined.
